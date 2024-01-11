@@ -8,8 +8,7 @@ clone, pull, add, commit, push, switch, …
 
 
 ### 実行結果の例
-- git clone
-  今回作成するフォルダ構成もこちら
+##### git clone
 ```
 [opc@cn work]$ git clone https://github.com/sh-sho/cn_study_tutor_repository.git
 Cloning into 'cn_study_tutor_repository'...
@@ -37,7 +36,7 @@ drwxrwxr-x 2 opc opc 23  1月 10 10:18 9_observability
 [opc@cn work]$
 ```
 
-- git pull
+##### git pull
 ```
 [opc@cn cn-study_public]$ git branch
 * main
@@ -67,7 +66,7 @@ Fast-forward
  rename 4-k8s/{wordpress copy => wordpress_bk}/wordpress_lb.yaml (100%)
  rename 4-k8s/{wordpress copy => wordpress_bk}/wordpress_nodeport.yaml (100%)
 ```
-- git add
+##### git add
 ```
 [opc@cn cn-study_public]$ echo "test comment" > test.txt
 [opc@cn cn-study_public]$ ll
@@ -87,7 +86,7 @@ drwxr-xr-x. 6 opc docker 4096 11月  8 06:29 fn-cowweb
 -rw-rw-r--  1 opc opc      13  1月 10 11:01 test.txt
 [opc@cn cn-study_public]$ git add .
 ```
-- git commit
+##### git commit
 ```
 [opc@cn-ol9 cn-study_public]$ git commit -m "add text.txt"
 [season2 e328543] add text.txt
@@ -136,7 +135,7 @@ Date:   Wed Jan 10 07:04:45 2024 +0000
 ```
 
 
-- git push
+##### git push
 ```
 [opc@cn-ol9 cn-study_public]$ git branch
   main
@@ -155,7 +154,7 @@ To https://github.com/hatoreka/cn-study_public.git
    1f1676c..44d8605  season2 -> season2
 ```  
 
-- git switch
+##### git switch
 ```
 [opc@cn-ol9 cn-study_public]$ git branch -a
   main
@@ -178,9 +177,3 @@ Switched to a new branch '#5_IaC'
   remotes/origin/season2
 [opc@cn-ol9 cn-study_public]$
 ```
-
-
-
-
-
-

@@ -3,10 +3,10 @@ OCI CLI, Docker, Docker Compose, kubectl, Fn CLI
 
 ### 前提条件
 - OCIにてAPIキーを取得し、セットアップする環境の任意フォルダに配置していること
-
+  https://docs.oracle.com/ja-jp/iaas/Content/API/SDKDocs/cliinstall.htm#configfile
 
 ### 実行結果の例
-- OCI CLI Install & setup
+##### OCI CLI Install & setup
 ```
 [opc@cn-ol9 ~]$ sudo yum install oraclelinux-developer-release-el9
 Last metadata expiration check: 0:02:51 ago on Wed 10 Jan 2024 09:01:25 AM GMT.
@@ -118,7 +118,7 @@ Complete!
 
 ```
 
-- OCI config setup 
+##### OCI config setup 
 ```
 [opc@cn-ol9 ~]$ oci setup config
 
@@ -183,7 +183,8 @@ export OCI_CLI_SUPPRESS_FILE_PERMISSIONS_WARNING=True
 oci setup repair-file-permissions --file /home/opc/.oci/oci_api_key_90days.pem
 ```
 
-### Docker(Podman) install
+##### Docker(Podman) install
+
 Oracle Linux 9のため、Podmanインストール
 
 https://docs.oracle.com/cd/F61410_01/podman/podman-InstallingPodmanandRelatedUtilities.html#podman-install
@@ -367,9 +368,11 @@ Documents: https://docs.podman.io
 Twitter:   @Podman_io
 ```
 
-- Podman/Docker compose install
-  Oracle Linuxの場合
-  https://docs.oracle.com/ja/learn/podman-compose/index.html#install-podman-compose
+##### Podman/Docker compose install
+
+Oracle Linuxの場合
+
+https://docs.oracle.com/ja/learn/podman-compose/index.html#install-podman-compose
 
 ```
 [opc@cn-ol9 ~]$ sudo curl -SL https://github.com/docker/compose/releases/download/v2.23.3/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -461,8 +464,10 @@ exit code: 0
 [opc@cn-ol9 ~]$
 ```
 
-- kubectl install
-  https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
+##### kubectl install
+
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
+
 ```
 [opc@cn-ol9 ~]$   curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 
@@ -495,8 +500,9 @@ clientVersion:
 kustomizeVersion: v5.0.4-0.20230601165947-6ce0bf390ce3
 ```
 
-- Fn CLI
-  https://github.com/fnproject/cli/blob/master/README.md
+##### Fn CLI
+
+https://github.com/fnproject/cli/blob/master/README.md
 
 ```
 [opc@cn-ol9 ~]$ curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh
