@@ -3,10 +3,12 @@ OCI CLI, Docker, Docker Compose, kubectl, Fn CLI
 
 ### 前提条件
 - OCIにてAPIキーを取得し、セットアップする環境の任意フォルダに配置していること
+
   https://docs.oracle.com/ja-jp/iaas/Content/API/SDKDocs/cliinstall.htm#configfile
 
 ### 実行結果の例
 ##### OCI CLI Install & setup
+
 ```
 [opc@cn-ol9 ~]$ sudo yum install oraclelinux-developer-release-el9
 Last metadata expiration check: 0:02:51 ago on Wed 10 Jan 2024 09:01:25 AM GMT.
