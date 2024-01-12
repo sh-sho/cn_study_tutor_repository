@@ -8,35 +8,48 @@ clone, pull, add, commit, push, switch, …
 
 
 ### 実行結果の例
-##### git clone
+
+1. git clone
+2. git pull
+3. git add
+4. git commit
+5. git push
+6. git switch
+
+##### 1. git clone
 ```
-[opc@cn work]$ git clone https://github.com/sh-sho/cn_study_tutor_repository.git
+[opc@cn-ol9 work]$ git clone https://github.com/sh-sho/cn_study_tutor_repository.git
 Cloning into 'cn_study_tutor_repository'...
-remote: Enumerating objects: 24, done.
-remote: Counting objects: 100% (24/24), done.
-remote: Compressing objects: 100% (4/4), done.
-remote: Total 24 (delta 0), reused 20 (delta 0), pack-reused 0
-Unpacking objects: 100% (24/24), done.
-[opc@cn work]$ ll
-合計 4
-drwxrwxr-x 13 opc opc 4096  1月 10 10:18 cn_study_tutor_repository
-[opc@cn work]$ ls -l cn_study_tutor_repository/
-合計 4
-drwxrwxr-x 2 opc opc 23  1月 10 10:18 0_setup
-drwxrwxr-x 2 opc opc 23  1月 10 10:18 1_oci_cli
-drwxrwxr-x 2 opc opc 23  1月 10 10:18 2_iac
-drwxrwxr-x 2 opc opc 23  1月 10 10:18 3_docker
-drwxrwxr-x 2 opc opc 23  1月 10 10:18 4_faas
-drwxrwxr-x 2 opc opc 23  1月 10 10:18 5_java
-drwxrwxr-x 2 opc opc 23  1月 10 10:18 6_kubernetes
-drwxrwxr-x 2 opc opc 23  1月 10 10:18 7_cicd
-drwxrwxr-x 2 opc opc 23  1月 10 10:18 8_messaging
-drwxrwxr-x 2 opc opc 23  1月 10 10:18 9_observability
--rw-rw-r-- 1 opc opc 27  1月 10 10:18 README.md
-[opc@cn work]$
+remote: Enumerating objects: 49, done.
+remote: Counting objects: 100% (49/49), done.
+remote: Compressing objects: 100% (22/22), done.
+remote: Total 49 (delta 8), reused 40 (delta 6), pack-reused 0
+Receiving objects: 100% (49/49), 11.67 KiB | 11.67 MiB/s, done.
+Resolving deltas: 100% (8/8), done.
+[opc@cn-ol9 work]$ ll
+total 4
+drwxr-xr-x. 13 opc opc 4096 Jan 12 03:46 cn_study_tutor_repository
+[opc@cn-ol9 work]$ cd cn_study_tutor_repository/
+[opc@cn-ol9 cn_study_tutor_repository]$ ll
+total 4
+drwxr-xr-x. 2 opc opc 23 Jan 12 03:46 0_setup
+drwxr-xr-x. 2 opc opc 23 Jan 12 03:46 1_oci_cli
+drwxr-xr-x. 2 opc opc 23 Jan 12 03:46 2_iac
+drwxr-xr-x. 2 opc opc 23 Jan 12 03:46 3_docker
+drwxr-xr-x. 2 opc opc 23 Jan 12 03:46 4_faas
+drwxr-xr-x. 2 opc opc 23 Jan 12 03:46 5_java
+drwxr-xr-x. 2 opc opc 23 Jan 12 03:46 6_kubernetes
+drwxr-xr-x. 2 opc opc 23 Jan 12 03:46 7_cicd
+drwxr-xr-x. 2 opc opc 23 Jan 12 03:46 8_messaging
+drwxr-xr-x. 2 opc opc 23 Jan 12 03:46 9_observability
+-rw-r--r--. 1 opc opc 27 Jan 12 03:46 README.md
+[opc@cn-ol9 cn_study_tutor_repository]$ git branch
+* main
+[opc@cn-ol9 cn_study_tutor_repository]$
+
 ```
 
-##### git pull
+##### 2. git pull
 ```
 [opc@cn-ol9 cn_study_tutor_repository]$ git pull
 remote: Enumerating objects: 10, done.
@@ -49,12 +62,12 @@ From https://github.com/sh-sho/cn_study_tutor_repository
 Already up to date.
 [opc@cn-ol9 cn_study_tutor_repository]$
 ```
-##### git add
+##### 3. git add
 ```
 [opc@cn-ol9 cn_study_tutor_repository]$ echo "test" > test.txt
 [opc@cn-ol9 cn_study_tutor_repository]$ git add .
 ```
-##### git commit
+##### 4. git commit
 ```
 [opc@cn-ol9 cn_study_tutor_repository]$ git commit -m "Add test.txt"
 [main dbea90f] Add test.txt
@@ -75,7 +88,7 @@ After doing this, you may fix the identity used for this commit with:
 [opc@cn-ol9 cn_study_tutor_repository]$
 ```
 
-[補足] name, emailを設定するとAuthorを変更できる。
+##### (補足) name, emailを設定するとAuthorを変更できる。
 
 ```
 [opc@cn-ol9 cn_study_tutor_repository]$ git config --global user.email "37202082+hatoreka@users.noreply.github.com"
@@ -98,7 +111,7 @@ Date:   Thu Jan 11 09:12:02 2024 +0000
 ```
 
 
-##### git push
+##### 5. git push
 ```
 [opc@cn-ol9 0_setup]$ git push
 Enumerating objects: 6, done.
@@ -112,7 +125,7 @@ To https://github.com/sh-sho/cn_study_tutor_repository.git
    47316ad..bece733  0_事前準備 -> 0_事前準備
 ```  
 
-##### git switch
+##### 6. git switch
 ```
 [opc@cn-ol9 0_setup]$ git fetch
 [opc@cn-ol9 0_setup]$
