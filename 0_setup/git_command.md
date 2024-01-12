@@ -1,11 +1,7 @@
 # Gitの”超”基本操作
-clone, pull, add, commit, push, switch, …
 
 ### 前提条件
-- 実行環境でアクセストークンの発行と設定は実施済みであること
-  
-  https://docs.github.com/ja/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
-
+- 実行環境でgitアクセストークンの発行と設定は実施済みであること
 
 ### 実行結果の例
 

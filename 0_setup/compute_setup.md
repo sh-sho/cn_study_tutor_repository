@@ -1,11 +1,8 @@
 # Compute作成 & セットアップ
-OCI CLI, Docker, Docker Compose, kubectl, Fn CLI
 
 ### 前提条件
 - OCIにてAPIキーを取得し、セットアップする環境の任意フォルダに配置していること
-
-  https://docs.oracle.com/ja-jp/iaas/Content/API/SDKDocs/cliinstall.htm#configfile
-- 環境はOracle Linux 9(DockerはOracle Linux 7)
+- 実行結果の例で使用している環境はOracle Linux 9(DockerはOracle Linux 7もあり)
 - コンテナツールとしてPodmanを利用しても構わないが、Dockerをインストールした環境を用意しておくこと。PodmanだとFn serverがローカルで実行できず、一部の課題が実施できない
 
 ### 実行結果の例
@@ -796,8 +793,6 @@ docker-compose-linux-x86_64           100%[=====================================
 2024-01-12 06:14:27 (378 MB/s) - ‘docker-compose-linux-x86_64’ saved [60932257/60932257]
 
 [opc@cn-ol9 work]$ chmod +x docker-compose-linux-x86_64
-[opc@cn-ol9 work]$ mv docker-compose-linux-x86_64 /usr/local/bin/
-mv: cannot move 'docker-compose-linux-x86_64' to '/usr/local/bin/docker-compose-linux-x86_64': Permission denied
 [opc@cn-ol9 work]$ sudo mv docker-compose-linux-x86_64 /usr/local/bin/
 [opc@cn-ol9 work]$ docker-compose version
 Docker Compose version v2.23.3
@@ -937,7 +932,7 @@ kustomizeVersion: v5.0.4-0.20230601165947-6ce0bf390ce3
 
 https://github.com/fnproject/cli/blob/master/README.md
 
-PodmanだとFn serverが動作しないため、Dockerをインストールしたサーバで実行している
+PodmanだとFn serverが動作しないため、Dockerをインストールしたサーバで実行している。Oracle Linux 9にDockerをインストールした場合も同様
 
 ```
 [opc@cn-ol7 ~]$ fn version

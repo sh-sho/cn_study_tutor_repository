@@ -1,5 +1,4 @@
 # VSCode (Remote SSH)のセットアップ
-作成したComputeにSSH(via Remote SSH)接続できることを確認
 
 ### 前提条件
 - VS Codeをインストールしていること
