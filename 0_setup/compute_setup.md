@@ -820,7 +820,7 @@ docker-compose-linux-x86_64           100%[=====================================
 2024-01-12 06:14:27 (378 MB/s) - ‘docker-compose-linux-x86_64’ saved [60932257/60932257]
 
 [opc@cn-ol9 work]$ chmod +x docker-compose-linux-x86_64
-[opc@cn-ol9 work]$ sudo mv docker-compose-linux-x86_64 /usr/local/bin/
+[opc@cn-ol9 work]$  sudo mv docker-compose-linux-x86_64 /usr/local/bin/docker-compose
 [opc@cn-ol9 work]$ docker-compose version
 Docker Compose version v2.23.3
 ```
