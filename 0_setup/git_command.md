@@ -1,13 +1,13 @@
 # Gitの”超”基本操作
 
-### 前提条件
+## 前提条件
 - 実行環境でgitアクセストークンの発行と設定は実施済みであること
 
-### 実行結果の例
+## 実行結果の例
 
-##### 1. git clone
+### 1. git clone
 
-<details><summary>git cloneの例</summary><div>
+<details><summary>(例)git clone</summary><div>
 
 ```
 [opc@cn-ol9 work]$ git clone https://github.com/sh-sho/cn_study_tutor_repository.git
@@ -43,9 +43,9 @@ drwxr-xr-x. 2 opc opc 23 Jan 12 03:46 9_observability
 
 </div></details>
 
-##### 2. git pull
+### 2. git pull
 
-<details><summary>git pullの例</summary><div>
+<details><summary>(例)git pull</summary><div>
 
 ```
 [opc@cn-ol9 cn_study_tutor_repository]$ git pull
@@ -61,9 +61,9 @@ Already up to date.
 ```
 </div></details>
 
-##### 3. git add
+### 3. git add
 
-<details><summary>git addの例</summary><div>
+<details><summary>(例)git add</summary><div>
 
 ```
 [opc@cn-ol9 cn_study_tutor_repository]$ echo "test" > test.txt
@@ -71,9 +71,9 @@ Already up to date.
 ```
 </div></details>
 
-##### 4. git commit
+### 4. git commit
 
-<details><summary>git commitの例</summary><div>
+<details><summary>(例)git commit</summary><div>
 
 ```
 [opc@cn-ol9 cn_study_tutor_repository]$ git commit -m "Add test.txt"
@@ -96,9 +96,9 @@ After doing this, you may fix the identity used for this commit with:
 ```
 </div></details>
 
-##### (補足) name, emailを設定するとAuthorを変更できる。
+### (補足) name, emailを設定するとAuthorを変更できる。
 
-<details><summary>Author変更の例</summary><div>
+<details><summary>(例)Author変更</summary><div>
 
 ```
 [opc@cn-ol9 cn_study_tutor_repository]$ git config --global user.email "37202082+hatoreka@users.noreply.github.com"
@@ -122,9 +122,9 @@ Date:   Thu Jan 11 09:12:02 2024 +0000
 
 </div></details>
 
-##### 5. git push
+### 5. git push
 
-<details><summary>git pushの例</summary><div>
+<details><summary>(例)git push</summary><div>
 
 ```
 [opc@cn-ol9 0_setup]$ git push
@@ -141,9 +141,9 @@ To https://github.com/sh-sho/cn_study_tutor_repository.git
 
 </div></details>
 
-##### 6. git switch
+### 6. git switch
 
-<details><summary>git switchの例</summary><div>
+<details><summary>(例)git switch</summary><div>
 
 ```
 [opc@cn-ol9 0_setup]$ git fetch
