@@ -974,9 +974,6 @@ PodmanだとFn serverが動作しないため、Dockerをインストールし�
 <details><summary>(例)Fn CLI/Server install</summary><div> 
 
 ```
-[opc@cn-ol7 ~]$ fn version
-Client version is latest version: 0.6.28
-Server version:  0.3.750
 [opc@cn-ol7 ~]$ curl -LSs https://raw.githubusercontent.com/fnproject/cli/master/install | sh
 fn version 0.6.28
 
