@@ -5,14 +5,10 @@
 
 ### 実行結果の例
 
-1. git clone
-2. git pull
-3. git add
-4. git commit
-5. git push
-6. git switch
-
 ##### 1. git clone
+
+<details><summary>git cloneの例</summary><div>
+
 ```
 [opc@cn-ol9 work]$ git clone https://github.com/sh-sho/cn_study_tutor_repository.git
 Cloning into 'cn_study_tutor_repository'...
@@ -45,7 +41,12 @@ drwxr-xr-x. 2 opc opc 23 Jan 12 03:46 9_observability
 
 ```
 
+</div></details>
+
 ##### 2. git pull
+
+<details><summary>git pullの例</summary><div>
+
 ```
 [opc@cn-ol9 cn_study_tutor_repository]$ git pull
 remote: Enumerating objects: 10, done.
@@ -58,12 +59,22 @@ From https://github.com/sh-sho/cn_study_tutor_repository
 Already up to date.
 [opc@cn-ol9 cn_study_tutor_repository]$
 ```
+</div></details>
+
 ##### 3. git add
+
+<details><summary>git addの例</summary><div>
+
 ```
 [opc@cn-ol9 cn_study_tutor_repository]$ echo "test" > test.txt
 [opc@cn-ol9 cn_study_tutor_repository]$ git add .
 ```
+</div></details>
+
 ##### 4. git commit
+
+<details><summary>git commitの例</summary><div>
+
 ```
 [opc@cn-ol9 cn_study_tutor_repository]$ git commit -m "Add test.txt"
 [main dbea90f] Add test.txt
@@ -83,8 +94,11 @@ After doing this, you may fix the identity used for this commit with:
  create mode 100644 test.txt
 [opc@cn-ol9 cn_study_tutor_repository]$
 ```
+</div></details>
 
 ##### (補足) name, emailを設定するとAuthorを変更できる。
+
+<details><summary>Author変更の例</summary><div>
 
 ```
 [opc@cn-ol9 cn_study_tutor_repository]$ git config --global user.email "37202082+hatoreka@users.noreply.github.com"
@@ -106,8 +120,12 @@ Date:   Thu Jan 11 09:12:02 2024 +0000
     delete test.txt
 ```
 
+</div></details>
 
 ##### 5. git push
+
+<details><summary>git pushの例</summary><div>
+
 ```
 [opc@cn-ol9 0_setup]$ git push
 Enumerating objects: 6, done.
@@ -121,7 +139,12 @@ To https://github.com/sh-sho/cn_study_tutor_repository.git
    47316ad..bece733  0_事前準備 -> 0_事前準備
 ```  
 
+</div></details>
+
 ##### 6. git switch
+
+<details><summary>git switchの例</summary><div>
+
 ```
 [opc@cn-ol9 0_setup]$ git fetch
 [opc@cn-ol9 0_setup]$
@@ -144,3 +167,4 @@ Your branch is up to date with 'origin/main'.
   remotes/origin/main
   remotes/origin/ritsuko_test
 ```
+</div></details>
