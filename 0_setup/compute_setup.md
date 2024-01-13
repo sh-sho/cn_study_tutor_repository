@@ -9,7 +9,7 @@
 
 ##### 1. OCI CLI install
 
-<details><summary>OCI CLI installの例</summary><div
+<details><summary>OCI CLI installの例</summary><div>
 
 ```
 [opc@cn-ol9 ~]$ sudo yum install oraclelinux-developer-release-el9
@@ -126,7 +126,7 @@ Complete!
 
 ##### 2. OCI config setup 
 
-<details><summary>OCI config setupの例</summary><div
+<details><summary>OCI config setupの例</summary><div>
 
 ```
 [opc@cn-ol9 ~]$ oci setup config
@@ -190,6 +190,10 @@ export OCI_CLI_SUPPRESS_FILE_PERMISSIONS_WARNING=True
 }
 [opc@cn-ol9 ~]$ oci setup repair-file-permissions --file /home/opc/.oci/oci_api_key.pem
 oci setup repair-file-permissions --file /home/opc/.oci/oci_api_key.pem
+[opc@cn-ol9 ~]$ oci os ns get
+{
+  "data": "xxxxxxxx"
+}
 ```
 
 </div></details>
@@ -200,7 +204,7 @@ OracleLinux7の場合はDockerインストール可能だが、OracleLinux8以�
 
 https://docs.oracle.com/cd/F61410_01/docker/docker-InstallingOracleContainerRuntimeforDocker.html#docker-install-docker
 
-<details><summary>Docker install (Oracle Linux 7)の例</summary><div
+<details><summary>Docker install (Oracle Linux 7)の例</summary><div>
 
 ```
 [opc@cn-ol7 ~]$ sudo yum install docker-engine docker-cli
