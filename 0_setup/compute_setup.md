@@ -1,15 +1,15 @@
 # Compute作成 & セットアップ
 
-### 前提条件
+## 前提条件
 - OCIにてAPIキーを取得し、セットアップする環境の任意フォルダに配置していること
 - 実行結果の例で使用している環境はOracle Linux 9(DockerはOracle Linux 7もあり)
 - コンテナツールとしてPodmanを利用しても構わないが、Dockerをインストールした環境を用意しておくこと。PodmanだとFn serverがローカルで実行できず、一部の課題が実施できない
 
-### 実行結果の例
+## 実行結果の例
 
-##### 1. OCI CLI install
+### 1. OCI CLI install
 
-<details><summary>OCI CLI installの例</summary><div>
+<details><summary>(例)OCI CLI install</summary><div>
 
 ```
 [opc@cn-ol9 ~]$ sudo yum install oraclelinux-developer-release-el9
@@ -124,9 +124,9 @@ Complete!
 
 </div></details>
 
-##### 2. OCI config setup 
+### 2. OCI config setup 
 
-<details><summary>OCI config setupの例</summary><div>
+<details><summary>(例)OCI config setup</summary><div>
 
 ```
 [opc@cn-ol9 ~]$ oci setup config
@@ -198,13 +198,11 @@ oci setup repair-file-permissions --file /home/opc/.oci/oci_api_key.pem
 
 </div></details>
 
-##### 3. Docker install (Oracle Linux 7)
-
-OracleLinux7の場合はDockerインストール可能だが、OracleLinux8以降はDockerはサポートされていないためPodmanをインストールする。ただしPodmanだとFn serverが動作しない
+### 3. Docker install (Oracle Linux 7)
 
 https://docs.oracle.com/cd/F61410_01/docker/docker-InstallingOracleContainerRuntimeforDocker.html#docker-install-docker
 
-<details><summary>Docker install (Oracle Linux 7)の例</summary><div>
+<details><summary>(例)Docker install (Oracle Linux 7)</summary><div>
 
 ```
 [opc@cn-ol7 ~]$ sudo yum install docker-engine docker-cli
@@ -372,13 +370,19 @@ Registries:
 
 </div></details>
 
-##### 4. Docker install (Oracle Linux 9)
+### 4. Docker install (Oracle Linux 9)
 
-Oracle Linux 8/9もDockerインストールはできるがサポートされない
+OracleLinux8/9はDockerを正式サポートしていないためPodmanをインストールする必要があるが、PodmanだとFn serverが動作しないので当勉強会ではDockerをインストールする
 
-<details><summary>Docker install (Oracle Linux 9)の例</summary><div>
+ただし、一部課題のみが対象なので必要に応じてPodmanでもよい
+
+https://oracle-base.com/articles/linux/docker-install-docker-on-oracle-linux-ol8
+
+<details><summary>(例)Docker install (Oracle Linux 9)</summary><div>
 
 ```
+[opc@cn-ol9 cn_study_tutor_repository]$ sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
+Adding repo from: https://download.docker.com/linux/centos/docker-ce.repo
 [opc@cn-ol9 cn_study_tutor_repository]$ sudo dnf install -y docker-ce --nobest
 Last metadata expiration check: 0:01:56 ago on Fri 12 Jan 2024 04:35:31 AM GMT.
 Dependencies resolved.
@@ -505,11 +509,11 @@ Jan 12 04:42:40 cn-ol9 systemd[1]: Started Docker Application Container Engine.
 
 </div></details>
 
-##### (補足)Dockerコマンドをroot以外で実行する方法
+### (補足)Dockerコマンドをroot以外で実行する方法
 
 https://docs.oracle.com/cd/F61410_01/docker/docker-ManagingtheDockerEngineService.html#docker-service-group
 
-<details><summary>Dockerコマンドをroot以外で実行する方法の例</summary><div>
+<details><summary>(例)Dockerコマンドをroot以外で実行する方法</summary><div>
 
 ```
 [opc@cn-ol7 ~]$ sudo groupadd docker
@@ -579,13 +583,13 @@ Registries:
 
 </div></details>
 
-##### 5. Podman install
+### 5. Podman install
 
 Oracle Linux8以上の場合はPodmanをインストール
 
 https://docs.oracle.com/cd/F61410_01/podman/podman-InstallingPodmanandRelatedUtilities.html#podman-install
 
-<details><summary>Podman installの例</summary><div>
+<details><summary>(例)Podman install</summary><div>
 
 ```
 [opc@cn-ol9 .oci]$ sudo dnf install container-tools
@@ -768,11 +772,11 @@ Twitter:   @Podman_io
 
 </div></details>
 
-##### 6. Docker compose install (Oracle Linux 7)
+### 6. Docker compose install (Oracle Linux 7)
 
 https://docs.docker.com/compose/install/linux/#install-the-plugin-manually
 
-<details><summary>Docker compose install (Oracle Linux 7)の例</summary><div>
+<details><summary>(例)Docker compose install (Oracle Linux 7)</summary><div>
 
 ```
 [opc@cn-ol7 ~]$ DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
@@ -791,11 +795,11 @@ Docker Compose version v2.23.3
 
 </div></details>
 
-##### 7. Docker compose install (Oracle Linux 9)
+### 7. Docker compose install (Oracle Linux 9)
 
 https://github.com/docker/compose?tab=readme-ov-file#linux
 
-<details><summary>Docker compose install (Oracle Linux 9)の例</summary><div>
+<details><summary>(例)Docker compose install (Oracle Linux 9)</summary><div>
 
 ```
 [opc@cn-ol9 work]$ wget https://github.com/docker/compose/releases/download/v2.24.0/docker-compose-linux-x86_64
@@ -823,11 +827,11 @@ Docker Compose version v2.23.3
 
 </div></details>
 
-##### 8. Podman compose install
+### 8. Podman compose install
 
 https://docs.oracle.com/ja/learn/podman-compose/index.html#install-podman-compose
 
-<details><summary>Podman compose installの例</summary><div> 
+<details><summary>(例)Podman compose install</summary><div> 
 
 ```
 [opc@cn-ol9 ~]$ sudo curl -SL https://github.com/docker/compose/releases/download/v2.23.3/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -921,11 +925,11 @@ exit code: 0
 
 </div></details>
 
-##### 9. kubectl install
+### 9. kubectl install
 
 https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
 
-<details><summary>kubectl installの例</summary><div>
+<details><summary>(例)kubectl install</summary><div>
 
 ```
 [opc@cn-ol9 ~]$   curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
@@ -961,13 +965,13 @@ kustomizeVersion: v5.0.4-0.20230601165947-6ce0bf390ce3
 
 </div></details>
 
-##### 10. Fn CLI/Server install
+### 10. Fn CLI/Server install
 
 https://github.com/fnproject/cli/blob/master/README.md
 
 PodmanだとFn serverが動作しないため、Dockerをインストールしたサーバで実行している。Oracle Linux 9にDockerをインストールした場合も同様
 
-<details><summary>Fn CLI/Server install</summary><div> 
+<details><summary>(例)Fn CLI/Server install</summary><div> 
 
 ```
 [opc@cn-ol7 ~]$ fn version
