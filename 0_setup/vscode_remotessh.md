@@ -1,6 +1,6 @@
 # VSCode (Remote SSH)のセットアップ
 
-### 前提条件
+## 前提条件
 - VS Codeがインストールされていること
 
 Qiita「Visual Studio Code で Remote SSH する」あたりを参照ください
