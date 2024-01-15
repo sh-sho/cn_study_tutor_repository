@@ -7,9 +7,9 @@
 
 ### 1. git clone
 
-<details><summary>(例)git clone</summary><div>
+<details><summary>(実行例)git clone</summary><div>
 
-```
+```console
 [opc@cn-ol9 work]$ git clone https://github.com/sh-sho/cn_study_tutor_repository.git
 Cloning into 'cn_study_tutor_repository'...
 remote: Enumerating objects: 49, done.
@@ -45,9 +45,9 @@ drwxr-xr-x. 2 opc opc 23 Jan 12 03:46 9_observability
 
 ### 2. git pull
 
-<details><summary>(例)git pull</summary><div>
+<details><summary>(実行例)git pull</summary><div>
 
-```
+```console
 [opc@cn-ol9 cn_study_tutor_repository]$ git pull
 remote: Enumerating objects: 10, done.
 remote: Counting objects: 100% (10/10), done.
@@ -63,9 +63,9 @@ Already up to date.
 
 ### 3. git add
 
-<details><summary>(例)git add</summary><div>
+<details><summary>(実行例)git add</summary><div>
 
-```
+```console
 [opc@cn-ol9 cn_study_tutor_repository]$ echo "test" > test.txt
 [opc@cn-ol9 cn_study_tutor_repository]$ git add .
 ```
@@ -73,9 +73,9 @@ Already up to date.
 
 ### 4. git commit
 
-<details><summary>(例)git commit</summary><div>
+<details><summary>(実行例)git commit</summary><div>
 
-```
+```console
 [opc@cn-ol9 cn_study_tutor_repository]$ git commit -m "Add test.txt"
 [main dbea90f] Add test.txt
  Committer: Oracle Public Cloud User <opc@cn-ol9.sub10241225480.vcn.oraclevcn.com>
@@ -98,9 +98,10 @@ After doing this, you may fix the identity used for this commit with:
 
 ### (補足) name, emailを設定するとAuthorを変更できる。
 
-<details><summary>(例)Author変更</summary><div>
+<details><summary>(実行例)Author変更</summary><div>
 
-```
+```console
+[opc@cn-ol9 cn_study_tutor_repository]$ git config --global user.name "hatoreka"
 [opc@cn-ol9 cn_study_tutor_repository]$ git config --global user.email "37202082+hatoreka@users.noreply.github.com"
 [opc@cn-ol9 cn_study_tutor_repository]$ git commit --amend --reset-author
 [main 6bd0d34] Add test.txt
@@ -124,9 +125,9 @@ Date:   Thu Jan 11 09:12:02 2024 +0000
 
 ### 5. git push
 
-<details><summary>(例)git push</summary><div>
+<details><summary>(実行例)git push</summary><div>
 
-```
+```console
 [opc@cn-ol9 0_setup]$ git push
 Enumerating objects: 6, done.
 Counting objects: 100% (6/6), done.
@@ -143,9 +144,9 @@ To https://github.com/sh-sho/cn_study_tutor_repository.git
 
 ### 6. git switch
 
-<details><summary>(例)git switch</summary><div>
+<details><summary>(実行例)git switch</summary><div>
 
-```
+```console
 [opc@cn-ol9 0_setup]$ git fetch
 [opc@cn-ol9 0_setup]$
 [opc@cn-ol9 0_setup]$ git branch -a
