@@ -1,0 +1,1 @@
+# 5. Object Storageの作成したバケット一覧のファイル（list-bucket-specify.json）のみ出力

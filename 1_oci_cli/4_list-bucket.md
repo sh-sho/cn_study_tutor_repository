@@ -1,0 +1,1 @@
+# 4. Object Storageのバケット一覧のファイル（list-bucket.json）出力
