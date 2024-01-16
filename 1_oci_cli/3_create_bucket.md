@@ -1,0 +1,1 @@
+# 3. Object StorageのBucket作成
