@@ -44,7 +44,7 @@ ritsuko_to@cloudshell:~ (us-ashburn-1)$ oci os bucket list --compartment-id ocid
 <details><summary>（実行例）ファイル出力</summary><div>
   
 ```console
-ritsuko_to@cloudshell:~ (us-ashburn-1)$ oci os bucket list --compartment-id ocid1.compartment.oc1..aaaaaaaabuuk3ndv2ekfscm5fz5qx2s7cvb5sg5euuvvisz5cejrdve3fqda --namespace-name orasejapan > os_list.json
+ritsuko_to@cloudshell:~ (us-ashburn-1)$ oci os bucket list --compartment-id ocid1.compartment.oc1..aaaaaaaabuuk3ndv2ekfscm5fz5qx2s7cvb5sg5euuvvisz5cejrdve3fqda --namespace-name orasejapan > list-bucket.json
 ```
 </div></details>
 
