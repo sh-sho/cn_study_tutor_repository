@@ -4,7 +4,7 @@ OCI CLIでパラメータを確認する方法は二通りある。
 1. コマンド・オプションの場合、--generate-param-json-inputを使用して、パラメータを取得するコマンド・オプションを指定する
 2. コマンド全体の場合、--generate-full-command-json-inputを使用する
 
-### 1. --generate-param-json-input [complex type]
+### 1. コマンド・オプション　--generate-param-json-input [complex type]
 
 OCI CLIのオプションでcomplex typeとなっている種類の情報をJSONフォーマットで出力するオプション
 
@@ -19,7 +19,7 @@ OCI CLIのオプションでcomplex typeとなっている種類の情報をJSON
 [opc@test-vm1 ~]$
 ```
 
-### 2. --generate-full-command-json-input
+### 2. コマンド全体　--generate-full-command-json-input
 
 OCI CLIの全てのオプションの入力情報をJSONフォーマットで出力するオプション
 
