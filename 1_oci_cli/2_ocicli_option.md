@@ -1,14 +1,14 @@
-# 2. OCI CLI実行に必要なパラメータをJSONフォーマットで確認するオプション
+# 2. OCI CLI実行に必要なパラメータをJSONフォーマットで確認するオプション(2つ)
 
 OCI CLIでパラメータを確認する方法は二通りある。
-1. コマンド・オプションの場合、--generate-param-json-inputを使用して、JSONを取得するコマンド・オプションを指定する。
-2. コマンド全体の場合、--generate-full-command-json-inputを使用する。
+1. コマンド・オプションの場合、--generate-param-json-inputを使用して、パラメータを取得するコマンド・オプションを指定する
+2. コマンド全体の場合、--generate-full-command-json-inputを使用する
 
 ### 1. --generate-param-json-input [complex type]
 
-OCI CLIのオプションでcomplex typeとなっている種類の情報をJSONフォーマットで出力する
+OCI CLIのオプションでcomplex typeとなっている種類の情報をJSONフォーマットで出力するオプション
 
-<details><summary>(実行例)バケット作成コマンドでfreeform-tagsオプションのフォーマットを確認する</summary><div>
+(実行例)バケット作成コマンドでfreeform-tagsオプションのフォーマットを確認する
 
 ```console
 [opc@test-vm1 ~]$ oci os bucket create --generate-param-json-input freeform-tags
@@ -19,13 +19,11 @@ OCI CLIのオプションでcomplex typeとなっている種類の情報をJSON
 [opc@test-vm1 ~]$
 ```
 
-</div></details>
-
 ### 2. --generate-full-command-json-input
 
-OCI CLIの全てのオプションの入力情報をJSONフォーマットで出力する
+OCI CLIの全てのオプションの入力情報をJSONフォーマットで出力するオプション
 
-<details><summary>(実行例)バケット作成コマンドで全オプションのフォーマットを確認する</summary><div>
+(実行例)バケット作成コマンドで全オプションのフォーマットを確認する
 
 ```console
 [opc@test-vm1 ~]$ oci os bucket create --generate-full-command-json-input
@@ -61,13 +59,13 @@ OCI CLIの全てのオプションの入力情報をJSONフォーマットで出
 }
 [opc@test-vm1 ~]$
 ```
-</div></details>
 
 ### 3. --generate-full-command-json-inputの出力結果から、バケット作成用JSONファイルを作成する
 
---generate-full-command-json-inputの出力結果から必要な項目を抽出し、任意のコンパートメントに、名称：test_bucket、プライベートアクセス、ストレージ層：標準、バージョニング：無し、のバケットを作成するJSONファイル。
+--generate-full-command-json-inputの出力結果から必要な項目を抽出し、任意のコンパートメントに、名称：test_bucket、アクセスタイプ：プライベートアクセス、ストレージ層：標準、バージョニング：無し、のバケットを作成するJSONファイルを作成する
 
-`create_bucket.json`バケット作成インプット用JSONファイル
+`create_bucket.json`
+
 ```JSON
 {
   "autoTiering": null,
@@ -93,7 +91,7 @@ OCI CLIの全てのオプションの入力情報をJSONフォーマットで出
 }
 ```
 
- JSONフォーマットを使用したバケット作成の実行例は[3. Object Storage – Bucket（cn-study-xxx）を作成してください](./3_create_bucket.md)を参照ください
+ JSONフォーマットを使用したバケット作成の実行例は[3. Object Storage – Bucket（cn-study-xxx）を作成してください](./3_create_bucket.md)を参照
 
 ### 参考
 
