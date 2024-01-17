@@ -83,7 +83,7 @@ OCI CLIの全てのオプションの入力情報をJSONフォーマットで出
   },
   "kmsKeyId": null,
   "metadata": {},
-  "name": "test_bucket",
+  "name": "cn-study-bucket",
   "namespace": "xxxxxxx",
   "namespaceName": "xxxxxxx",
   "objectEventsEnabled": true,
@@ -93,52 +93,7 @@ OCI CLIの全てのオプションの入力情報をJSONフォーマットで出
 }
 ```
 
-<details><summary>(実行例)JSONフォーマットを使用したバケット作成</summary><div>
-
-```console
-[opc@test-vm1 ~]$ oci os bucket create --from-json file://create_bucket.json
-{
-  "data": {
-    "approximate-count": null,
-    "approximate-size": null,
-    "auto-tiering": null,
-    "compartment-id": "ocid1.compartment.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxx",
-    "created-by": "ocid1.user.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "defined-tags": {
-      "Oracle-Tags": {
-        "CreatedBy": "oracleidentitycloudservice/hoge@hogehoge.com",
-        "CreatedOn": "2024-01-17T02:42:12.834Z"
-      },
-      "defineTag1": {
-        "definedTagKey1": "definedTagValue1"
-      }
-    },
-    "etag": "ef676a3b-dfb5-4978-bc15-xxxxxxxxxx",
-    "freeform-tags": {
-      "freeTagKey1": "tagValue1",
-      "freeTagKey2": "tagValue2"
-    },
-    "id": "ocid1.bucket.oc1.ap-tokyo-1.aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "is-read-only": false,
-    "kms-key-id": null,
-    "metadata": {},
-    "name": "test_bucket",
-    "namespace": "xxxxxx",
-    "object-events-enabled": true,
-    "object-lifecycle-policy-etag": null,
-    "public-access-type": "NoPublicAccess",
-    "replication-enabled": false,
-    "storage-tier": "Standard",
-    "time-created": "2024-01-17T02:42:12.842000+00:00",
-    "versioning": "Disabled"
-  },
-  "etag": "ef676a3b-dfb5-4978-bc15-xxxxxxxxxx"
-}
-[opc@test-vm1 ~]$
-```
-
-</div></details>
-
+ JSONフォーマットを使用したバケット作成の実行例は[3. Object Storage – Bucket（cn-study-xxx）を作成してください](./3_create_bucket.md)を参照ください
 
 ### 参考
 
