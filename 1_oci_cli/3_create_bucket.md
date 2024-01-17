@@ -1,4 +1,4 @@
-# 3. Object StorageのBucket作成
+# 3. Object Storage – Bucket（cn-study-xxx）を作成してください（xxx: ご自由に）
 
 OCI CLIでのBucket作成手順となります。OCIコンソール上での作成手順は省略しています。
 
