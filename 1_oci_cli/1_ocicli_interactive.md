@@ -47,7 +47,7 @@ OCIプロファイルが複数ある場合、`--profile <profile name>`をオプ
 default_profile=profile_A
 
 [profile_A]
-# プロファイルBのコンパートメントID
+# プロファイルAのコンパートメントID
 compartment-id=ocid1.compartment.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 [profile_B]
