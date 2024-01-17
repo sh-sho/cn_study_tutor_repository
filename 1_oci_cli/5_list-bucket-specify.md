@@ -10,6 +10,8 @@
 JSONのクエリ言語である JMESPath を使うと出力の指定ができます。<br>
 OCI-CLIでJMESPathを利用するには、--queryオプションを使います。<br>
 
+JMESPathの具体的な使い方は、[公式ドキュメント](https://jmespath.org/) をチェックしましょう。
+
 （実行例）バケット作成者 (created-by) を指定した場合の標準出力
 
 ```console
@@ -65,3 +67,8 @@ ritsuko_to@cloudshell:~ (us-ashburn-1)$ cat list-bucket-specify.json
 
 ```
 </div></details>
+
+## 参考ドキュメント
+・ [JMESPath](https://jmespath.org/) 
+<br>
+・ [oci os bucket list](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.37.4/oci_cli_docs/cmdref/os/bucket/list.html)
