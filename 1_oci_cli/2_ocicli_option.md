@@ -1,10 +1,10 @@
 # 2. OCI CLI実行に必要なパラメータをJSONフォーマットで確認するオプション
 
-- [OCI CLIのJSON拡張オプション](https://docs.public.oneportal.content.oci.oraclecloud.com/ja-jp/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSON)
+OCI CLIでパラメータを確認する方法は二通りある。
+1. コマンド・オプションの場合、--generate-param-json-inputを使用して、JSONを取得するコマンド・オプションを指定する。
+2. コマンド全体の場合、--generate-full-command-json-inputを使用する。
 
-
-
-## 1. --generate-param-json-input [text]
+### 1. --generate-param-json-input [complex type]
 
 OCI CLIのオプションでcomplex typeとなっている種類の情報をJSONフォーマットで出力する
 
@@ -21,7 +21,7 @@ OCI CLIのオプションでcomplex typeとなっている種類の情報をJSON
 
 </div></details>
 
-## 2. --generate-full-command-json-input
+### 2. --generate-full-command-json-input
 
 OCI CLIの全てのオプションの入力情報をJSONフォーマットで出力する
 
@@ -63,11 +63,11 @@ OCI CLIの全てのオプションの入力情報をJSONフォーマットで出
 ```
 </div></details>
 
-### --generate-full-command-json-inputの出力結果から、バケット作成用JSONファイルを作成する
+### 3. --generate-full-command-json-inputの出力結果から、バケット作成用JSONファイルを作成する
 
 --generate-full-command-json-inputの出力結果から必要な項目を抽出し、任意のコンパートメントに、名称：test_bucket、プライベートアクセス、ストレージ層：標準、バージョニング：無し、のバケットを作成するJSONファイル。
 
-
+`create_bucket.json`バケット作成インプット用JSONファイル
 ```JSON
 {
   "autoTiering": null,
@@ -145,3 +145,4 @@ OCI CLIの全てのオプションの入力情報をJSONフォーマットで出
 - [oci os bucket create [OPTIONS]](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.37.4/oci_cli_docs/cmdref/os/bucket/create.html
 )
 
+- [OCI CLIのJSON拡張オプション](https://docs.public.oneportal.content.oci.oraclecloud.com/ja-jp/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSON)
