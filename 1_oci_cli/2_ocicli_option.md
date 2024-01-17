@@ -62,7 +62,7 @@ OCI CLIの全てのオプションの入力情報をJSONフォーマットで出
 
 ### 3. --generate-full-command-json-inputの出力結果から、バケット作成用JSONファイルを作成する
 
---generate-full-command-json-inputの出力結果から必要な項目を抽出し、任意のコンパートメントに、名称：test_bucket、アクセスタイプ：プライベートアクセス、ストレージ層：標準、バージョニング：無し、のバケットを作成するJSONファイルを作成する
+--generate-full-command-json-inputの出力結果から必要な項目を抽出し、任意のコンパートメントに、名称：cn-study-bucket、アクセスタイプ：プライベートアクセス、ストレージ層：標準、バージョニング：無し、のバケットを作成するJSONファイルを作成する
 
 `create_bucket.json`
 
