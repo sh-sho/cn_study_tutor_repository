@@ -35,7 +35,7 @@ OCIプロファイルが複数ある場合、`--profile <profile name>`をオプ
 
 ### (補足)プロファイルの事前設定
 
-~/.oci/oci_cli_rcに、デフォルトのプロファイルとパラメータを設定しておくことにより、OCI CLI実行時のオプションを省略することができる。~/.oci/oci_cli_rc自体のパスも変更することもできる。
+デフォルトのプロファイルとパラメータを~/.oci/oci_cli_rcに設定しておくことにより、OCI CLI実行時のオプションを省略することができる。~/.oci/oci_cli_rc自体のパスも変更することもできる。
 
 ```console
 [opc@test-vm1 ~]$ cat ~/.oci/oci_cli_rc
