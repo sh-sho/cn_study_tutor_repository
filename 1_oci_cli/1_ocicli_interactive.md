@@ -1,12 +1,10 @@
 # 1. OCI CLIのインタラクティブ・モード
 
+### 1. OCI CLIのインタラクティブモード
+
 OCI CLIのインタラクティブモード(対話型モード)の`oci -i`を実行すると、ガイドを見つつコマンドを入力することができる。
 
-https://docs.public.oneportal.content.oci.oraclecloud.com/ja-jp/iaas/Content/API/SDKDocs/cliusing_topic-Using_Interactive_Mode.htm
-
-- (補足)OCIプロファイルが複数ある場合は、`--profile <profile name>`をオプションに指定して`oci -i`を実行する。
-
-<details><summary>(実行例)OCI CLIのインタラクティブモード</summary><div>
+OCIプロファイルが複数ある場合、`--profile <profile name>`をオプションに指定して`oci -i`を実行する。
 
 ```console
 [opc@test-vm1 ~]$ oci -i --profile test  # OCIプロファイルが`test`の場合
@@ -33,4 +31,30 @@ https://docs.public.oneportal.content.oci.oraclecloud.com/ja-jp/iaas/Content/API
 }
 [opc@test-vm1 ~]$
 ```
-</div></details>
+
+
+### (補足)プロファイルの事前設定
+
+~/.oci/oci_cli_rcに、デフォルトのプロファイルとパラメータを設定しておくことにより、OCI CLI実行時のオプションを省略することができる。~/.oci/oci_cli_rc自体のパスも変更することもできる。
+
+```console
+[opc@test-vm1 ~]$ cat ~/.oci/oci_cli_rc
+[OCI_CLI_SETTINGS]
+default_profile=profile_A
+
+[profile_A]
+# プロファイルBのコンパートメントID
+compartment-id=ocid1.compartment.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+[profile_B]
+# プロファイルBのコンパートメントID
+compartment-id=ocid1.compartment.oc1..aaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+[opc@test-vm1 ~]$
+```
+
+### 参考
+
+- [OCI CLIの構成ファイルのデフォルト](https://docs.public.oneportal.content.oci.oraclecloud.com/ja-jp/iaas/Content/API/SDKDocs/cliconfigure.htm#CLIconfigfile)
+
+- [OCI CLI インタラクティブ・モード](https://docs.public.oneportal.content.oci.oraclecloud.com/ja-jp/iaas/Content/API/SDKDocs/cliusing_topic-Using_Interactive_Mode.htm)
+
