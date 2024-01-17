@@ -42,11 +42,12 @@ ritsuko_to@cloudshell:~ (us-ashburn-1)$ oci os bucket list --compartment-id ocid
 今回のゴールはファイル出力になるため、実行例のようにファイル出力を指定する。
 
 <details><summary>（実行例）ファイル出力</summary><div>
+  
 ```console
 ritsuko_to@cloudshell:~ (us-ashburn-1)$ oci os bucket list --compartment-id ocid1.compartment.oc1..aaaaaaaabuuk3ndv2ekfscm5fz5qx2s7cvb5sg5euuvvisz5cejrdve3fqda --namespace-name orasejapan > os_list.json
 ```
 </div></details>
 
-### ※参考
+### ※参考ドキュメント
 ・ [oci os bucket list](https://docs.oracle.com/en-us/iaas/tools/oci-cli/3.37.4/oci_cli_docs/cmdref/os/bucket/list.html)
 
