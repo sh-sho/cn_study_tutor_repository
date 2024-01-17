@@ -45,7 +45,7 @@ OCI CLIでのBucket作成手順となります。OCIコンソール上での作�
 
 ### 2. JSONフォーマットを使用したOCI CLIコマンドによるバケット作成
 
-create_bucket.jsonについては、[OCI CLI実行に必要なパラメータをJSONフォーマットで確認するオプション（2つ）](./2_ocicli_option.md)を参照ください。
+create_bucket.jsonについては、[OCI CLI実行に必要なパラメータをJSONフォーマットで確認するオプション（2つ）](./2_ocicli_option.md)を参照
 
 (実行例)JSONフォーマットを使用して、OCI CLIでcn-study-bucketバケットを作成する
 
