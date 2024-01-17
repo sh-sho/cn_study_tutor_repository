@@ -6,6 +6,8 @@ OCI CLIのインタラクティブモード(対話型モード)の`oci -i`を実
 
 OCIプロファイルが複数ある場合、`--profile <profile name>`をオプションに指定して`oci -i`を実行する。
 
+(実行例)OCI CLIのインタラクティブ・モード
+
 ```console
 [opc@test-vm1 ~]$ oci -i --profile test  # OCIプロファイルが`test`の場合
 > oci os ns get
@@ -36,6 +38,8 @@ OCIプロファイルが複数ある場合、`--profile <profile name>`をオプ
 ### (補足)プロファイルの事前設定
 
 デフォルトのプロファイルとパラメータを~/.oci/oci_cli_rcに設定しておくことにより、OCI CLI実行時のオプションを省略することができる。~/.oci/oci_cli_rc自体のパスも変更することもできる。
+
+(実行例)OCI CLIのプロファイル設定
 
 ```console
 [opc@test-vm1 ~]$ cat ~/.oci/oci_cli_rc
