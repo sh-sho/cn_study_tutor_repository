@@ -9,7 +9,7 @@
 
 ### Terraform設定ファイル
 
-- OCIからコンパートメントOCIDを取得するための情報を記載：  [datasource.tf](./object_storage/dataresources.tf)
+- OCIからコンパートメントOCIDを取得するための情報を記載：  [dataresource.tf](./object_storage/dataresources.tf)
 - Object Storageを作成するための情報を記載：  [objectstorage.tf](./object_storage/objectstorage.tf)
 - `terraform apply`実行後の出力結果で表示する項目を記載：  [outputs.tf](./object_storage/outputs.tf)
 - OCIへアクセスするためのプロバイダー情報を記載：  [provider.tf](./object_storage/provider.tf)
