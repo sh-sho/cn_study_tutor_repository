@@ -1,5 +1,14 @@
 # Object storage - bucket
 
+### Let's THINK!!
+
+1. TerraformのPlan情報を保存しておきたいときは、どのようにすればいいでしょうか？
+2. Githubに機密情報を保存したくない場合、どのようにすればいいでしょうか？
+3. Terraform ProviderでOCI用の設定をしないとWarningが出ますが、その理由はなんでしょうか？また、どのように対応すればいいでしょうか？
+4. コンパートメントのocidを直接指定するのではなく、コンパートメント名称で指定する方法は、どのようにすればいいでしょうか？
+
+### Terraform設定ファイル
+
 - OCIからコンパートメントOCIDを取得するための情報を記載：  [datasource.tf](./object_storage/dataresources.tf)
 - Object Storageを作成するための情報を記載：  [objectstorage.tf](./object_storage/objectstorage.tf)
 - `terraform apply`実行後の出力結果で表示する項目を記載：  [outputs.tf](./object_storage/outputs.tf)
