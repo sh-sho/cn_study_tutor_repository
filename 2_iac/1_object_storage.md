@@ -3,9 +3,10 @@
 ### Let's THINK!!
 
 1. TerraformのPlan情報を保存しておきたいときは、どのようにすればいいでしょうか？
-2. Githubに機密情報を保存したくない場合、どのようにすればいいでしょうか？
-3. Terraform ProviderでOCI用の設定をしないとWarningが出ますが、その理由はなんでしょうか？また、どのように対応すればいいでしょうか？
-4. コンパートメントのocidを直接指定するのではなく、コンパートメント名称で指定する方法は、どのようにすればいいでしょうか？
+2. Terraformの実行結果の状態を保持しておく方法は、どのようになっているでしょうか？
+3. Githubに機密情報を保存したくない場合、どのようにすればいいでしょうか？
+4. Terraform ProviderでOCI用の設定をしないとWarningが出ますが、その理由はなんでしょうか？また、どのように対応すればいいでしょうか？
+5. コンパートメントのocidを直接指定するのではなく、コンパートメント名称で指定する方法は、どのようにすればいいでしょうか？
 
 ### Terraform設定ファイル
 
@@ -30,7 +31,7 @@ compartment_name = "xxxxxxx"
 ### (実行例)terraform init
 
 ```console
-[opc@admin2-vm1 object_storage]$ terraform init
+[opc@test-vm1 object_storage]$ terraform init
 
 Initializing the backend...
 
@@ -61,7 +62,7 @@ commands will detect it and remind you to do so if necessary.
 
 ### (実行例)terraform plan
 ```console
-[opc@admin2-vm1 object_storage]$ terraform plan
+[opc@test-vm1 object_storage]$ terraform plan
 data.oci_identity_compartments.target_compartment: Reading...
 data.oci_identity_compartments.target_compartment: Read complete after 1s [id=IdentityCompartmentsDataSource-3644324254]
 
@@ -114,7 +115,7 @@ Note: You didn't use the -out option to save this plan, so Terraform can't guara
 
 ### (実行例)terraform apply
 ```console
-[opc@admin2-vm1 object_storage]$ terraform apply
+[opc@test-vm1 object_storage]$ terraform apply
 data.oci_identity_compartments.target_compartment: Reading...
 data.oci_identity_compartments.target_compartment: Read complete after 1s [id=IdentityCompartmentsDataSource-3644324254]
 
@@ -181,7 +182,7 @@ target_compartment = "ocid1.compartment.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ### (実行例)terraform destroy
 ```console
-[opc@admin2-vm1 object_storage]$ terraform destroy
+[opc@test-vm1 object_storage]$ terraform destroy
 data.oci_identity_compartments.target_compartment: Reading...
 data.oci_identity_compartments.target_compartment: Read complete after 0s [id=IdentityCompartmentsDataSource-3644324254]
 oci_objectstorage_bucket.test_bucket: Refreshing state... [id=n/xxxxxx/b/testBucket-EN]
