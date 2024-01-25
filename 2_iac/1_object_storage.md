@@ -1,4 +1,4 @@
-# Object storageをTerraformで作成する
+# Object StorageのBucketをTerraformで作成する
 
 ### Let's THINK!!
 
