@@ -13,7 +13,7 @@
 
 1. VCNとSubnetを同時に作成する場合、どのようにしてVCN情報をSubnetに渡しているでしょうか？
 2. Defaultで作成されるSecurity List、Subnetなどを変更するには、どのようにTerraformを記載すればいいでしょうか？
-3. moduleを使用した場合、構成はどうなるでしょうか？
+3. moduleを使用した場合、構成はどうなるでしょうか？ [moduleのmain.tf](./vcn/module/main.tf)
 
 ### Terraform設定ファイル
 
