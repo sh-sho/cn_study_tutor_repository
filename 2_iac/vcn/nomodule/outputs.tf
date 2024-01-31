@@ -26,8 +26,8 @@ output "private_security_list" {
     value = [oci_core_security_list.private_security_list.id]
 }
 output "default_route_table" {
-    value = [oci_core_default_route_table.default_route_table.id]
+    value = [oci_core_default_route_table.route_table_service_gateway.id]
 }
 output "oci_core_services" {
-    value = data.oci_core_services.all_oci_services.services.0
+    value = data.oci_core_services.all_oci_services.services.*
 }
