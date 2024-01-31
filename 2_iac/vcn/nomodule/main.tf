@@ -49,7 +49,6 @@ resource "oci_core_security_list" "private_security_list" {
     }
 }
 
-# Public security list
 resource "oci_core_default_security_list" "public_security_list" {
   manage_default_resource_id = oci_core_vcn.generated_oci_core_vcn.default_security_list_id
 
@@ -68,14 +67,12 @@ resource "oci_core_default_security_list" "public_security_list" {
   }
 }
 
-# Internet gateway
 resource "oci_core_internet_gateway" "internet_gateway" {
     compartment_id = var.compartment_id
     vcn_id = oci_core_vcn.generated_oci_core_vcn.id
     display_name = "internet_gateway"
 }
 
-# Service gateway route table
 resource "oci_core_default_route_table" "route_table_service_gateway" {
   manage_default_resource_id = oci_core_vcn.generated_oci_core_vcn.default_route_table_id
   display_name = "route_table_private"
@@ -86,12 +83,11 @@ resource "oci_core_default_route_table" "route_table_service_gateway" {
   }
   route_rules {
     network_entity_id = oci_core_service_gateway.service_gateway.id
-    destination = "all-nrt-services-in-oracle-services-network"
+    destination = data.oci_core_services.all_oci_services.services[0].cidr_block
     destination_type = "SERVICE_CIDR_BLOCK"
   }
 }
 
-# Public route table
 resource "oci_core_route_table" "route_table_public" {
   compartment_id = var.compartment_id
   vcn_id = oci_core_vcn.generated_oci_core_vcn.id
@@ -103,14 +99,12 @@ resource "oci_core_route_table" "route_table_public" {
   }
 }
 
-# NAT gateway
 resource "oci_core_nat_gateway" "nat_gateway" {
   compartment_id = var.compartment_id
   vcn_id = oci_core_vcn.generated_oci_core_vcn.id
   display_name = "nat_gateway"
 }
 
-# Service gateway
 resource "oci_core_service_gateway" "service_gateway" {
   compartment_id = var.compartment_id
   vcn_id = oci_core_vcn.generated_oci_core_vcn.id
@@ -120,7 +114,6 @@ resource "oci_core_service_gateway" "service_gateway" {
   display_name = "service_gateway"
 }
 
-# Service
 data "oci_core_services" "all_oci_services" {
   filter {
     name   = "name"

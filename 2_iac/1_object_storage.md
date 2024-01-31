@@ -25,6 +25,7 @@ user_ocid="ocid1.user.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxx"
 private_key_path="/home/opc/.ssh/xxxxxxx.pem"
 fingerprint="XX:XX:ab:88:ef:17:89:79:0d:XX:XX:XX:XX:XX:XX:XX"
 region="ap-tokyo-1"
+bucket_namespace = "xxxxxxx"
 compartment_name = "xxxxxxx"
 ```
 
@@ -64,7 +65,7 @@ commands will detect it and remind you to do so if necessary.
 ```console
 [opc@test-vm1 object_storage]$ terraform plan
 data.oci_identity_compartments.target_compartment: Reading...
-data.oci_identity_compartments.target_compartment: Read complete after 1s [id=IdentityCompartmentsDataSource-3644324254]
+data.oci_identity_compartments.target_compartment: Read complete after 0s [id=IdentityCompartmentsDataSource-550476753]
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
@@ -87,7 +88,7 @@ Terraform will perform the following actions:
       + is_read_only                 = (known after apply)
       + kms_key_id                   = (known after apply)
       + name                         = "testBucket-EN"
-      + namespace                    = "xxxxxx"
+      + namespace                    = "xxxxxxxxxxxxxx"
       + object_events_enabled        = (known after apply)
       + object_lifecycle_policy_etag = (known after apply)
       + replication_enabled          = (known after apply)
@@ -99,25 +100,45 @@ Terraform will perform the following actions:
 Plan: 1 to add, 0 to change, 0 to destroy.
 
 Changes to Outputs:
-  + bucket_accessType     = "NoPublicAccess"
-  + bucket_bucket_id      = (known after apply)
-  + bucket_compartment_id = "ocid1.compartment.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-  + bucket_created_by     = (known after apply)
-  + bucket_name           = "testBucket-EN"
-  + bucket_namespace      = "xxxxxx"
-  + bucket_storage_tier   = (known after apply)
-  + target_compartment    = "ocid1.compartment.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  + bucket_name        = {
+      + access_type                  = "NoPublicAccess"
+      + approximate_count            = (known after apply)
+      + approximate_size             = (known after apply)
+      + auto_tiering                 = (known after apply)
+      + bucket_id                    = (known after apply)
+      + compartment_id               = "ocid1.compartment.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      + created_by                   = (known after apply)
+      + defined_tags                 = (known after apply)
+      + etag                         = (known after apply)
+      + freeform_tags                = (known after apply)
+      + id                           = (known after apply)
+      + is_read_only                 = (known after apply)
+      + kms_key_id                   = (known after apply)
+      + metadata                     = null
+      + name                         = "testBucket-EN"
+      + namespace                    = "xxxxxxxxxxxxxx"
+      + object_events_enabled        = (known after apply)
+      + object_lifecycle_policy_etag = (known after apply)
+      + replication_enabled          = (known after apply)
+      + retention_rules              = []
+      + storage_tier                 = (known after apply)
+      + time_created                 = (known after apply)
+      + timeouts                     = null
+      + versioning                   = (known after apply)
+    }
+  + target_compartment = "ocid1.compartment.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
-───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 Note: You didn't use the -out option to save this plan, so Terraform can't guarantee to take exactly these actions if you run "terraform apply" now.
+
 ```
 
 ### (実行例)terraform apply
 ```console
 [opc@test-vm1 object_storage]$ terraform apply
 data.oci_identity_compartments.target_compartment: Reading...
-data.oci_identity_compartments.target_compartment: Read complete after 1s [id=IdentityCompartmentsDataSource-3644324254]
+data.oci_identity_compartments.target_compartment: Read complete after 0s [id=IdentityCompartmentsDataSource-550476753]
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
@@ -140,7 +161,7 @@ Terraform will perform the following actions:
       + is_read_only                 = (known after apply)
       + kms_key_id                   = (known after apply)
       + name                         = "testBucket-EN"
-      + namespace                    = "xxxxxx"
+      + namespace                    = "xxxxxxxxxxxxxx"
       + object_events_enabled        = (known after apply)
       + object_lifecycle_policy_etag = (known after apply)
       + replication_enabled          = (known after apply)
@@ -152,10 +173,33 @@ Terraform will perform the following actions:
 Plan: 1 to add, 0 to change, 0 to destroy.
 
 Changes to Outputs:
-  + bucket_bucket_id      = (known after apply)
-  + bucket_created_by     = (known after apply)
-  ~ bucket_namespace      = "xxxxxx" -> "xxxxxx"
-  + bucket_storage_tier   = (known after apply)
+  + bucket_name        = {
+      + access_type                  = "NoPublicAccess"
+      + approximate_count            = (known after apply)
+      + approximate_size             = (known after apply)
+      + auto_tiering                 = (known after apply)
+      + bucket_id                    = (known after apply)
+      + compartment_id               = "ocid1.compartment.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      + created_by                   = (known after apply)
+      + defined_tags                 = (known after apply)
+      + etag                         = (known after apply)
+      + freeform_tags                = (known after apply)
+      + id                           = (known after apply)
+      + is_read_only                 = (known after apply)
+      + kms_key_id                   = (known after apply)
+      + metadata                     = null
+      + name                         = "testBucket-EN"
+      + namespace                    = "xxxxxxxxxxxxxx"
+      + object_events_enabled        = (known after apply)
+      + object_lifecycle_policy_etag = (known after apply)
+      + replication_enabled          = (known after apply)
+      + retention_rules              = []
+      + storage_tier                 = (known after apply)
+      + time_created                 = (known after apply)
+      + timeouts                     = null
+      + versioning                   = (known after apply)
+    }
+  + target_compartment = "ocid1.compartment.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
 Do you want to perform these actions?
   Terraform will perform the actions described above.
@@ -164,28 +208,51 @@ Do you want to perform these actions?
   Enter a value: yes
 
 oci_objectstorage_bucket.test_bucket: Creating...
-oci_objectstorage_bucket.test_bucket: Creation complete after 0s [id=n/xxxxxx/b/testBucket-EN]
+oci_objectstorage_bucket.test_bucket: Creation complete after 1s [id=n/xxxxxxxxxxxxxx/b/testBucket-EN]
 
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 Outputs:
 
-bucket_accessType = "NoPublicAccess"
-bucket_bucket_id = "ocid1.bucket.oc1.ap-tokyo-1.aaaaaaaaaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-bucket_compartment_id = "ocid1.compartment.oc1..aaaaaaaaaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-bucket_created_by = "ocid1.user.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-bucket_name = "testBucket-EN"
-bucket_namespace = "xxxxxx"
-bucket_storage_tier = "Standard"
+bucket_name = {
+  "access_type" = "NoPublicAccess"
+  "approximate_count" = "0"
+  "approximate_size" = "0"
+  "auto_tiering" = "Disabled"
+  "bucket_id" = "ocid1.bucket.oc1.ap-tokyo-1.aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  "compartment_id" = "ocid1.compartment.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  "created_by" = "ocid1.user.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+  "defined_tags" = tomap({
+    "Oracle-Tags.CreatedBy" = "oracleidentitycloudservice/hoge@hoge.com"
+    "Oracle-Tags.CreatedOn" = "2024-01-31T13:00:50.436Z"
+  })
+  "etag" = "18bbcde8-c6d2-4dea-a908-eca821638e12"
+  "freeform_tags" = tomap({})
+  "id" = "n/xxxxxxxxxxxxxx/b/testBucket-EN"
+  "is_read_only" = false
+  "kms_key_id" = tostring(null)
+  "metadata" = tomap(null) /* of string */
+  "name" = "testBucket-EN"
+  "namespace" = "xxxxxxxxxxxxxx"
+  "object_events_enabled" = false
+  "object_lifecycle_policy_etag" = tostring(null)
+  "replication_enabled" = false
+  "retention_rules" = toset([])
+  "storage_tier" = "Standard"
+  "time_created" = "2024-01-31 13:00:50.468 +0000 UTC"
+  "timeouts" = null /* object */
+  "versioning" = "Disabled"
+}
 target_compartment = "ocid1.compartment.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
 ```
 
-### (実行例)terraform destroy
+### (実行例)terraform apply -destroy
 ```console
-[opc@test-vm1 object_storage]$ terraform destroy
+[opc@test-vm1 object_storage]$ terraform apply -destroy
 data.oci_identity_compartments.target_compartment: Reading...
-data.oci_identity_compartments.target_compartment: Read complete after 0s [id=IdentityCompartmentsDataSource-3644324254]
-oci_objectstorage_bucket.test_bucket: Refreshing state... [id=n/xxxxxx/b/testBucket-EN]
+data.oci_identity_compartments.target_compartment: Read complete after 0s [id=IdentityCompartmentsDataSource-550476753]
+oci_objectstorage_bucket.test_bucket: Refreshing state... [id=n/xxxxxxxxxxxxxx/b/testBucket-EN]
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   - destroy
@@ -203,33 +270,55 @@ Terraform will perform the following actions:
       - created_by            = "ocid1.user.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" -> null
       - defined_tags          = {
           - "Oracle-Tags.CreatedBy" = "oracleidentitycloudservice/hoge@hoge.com"
-          - "Oracle-Tags.CreatedOn" = "2024-01-23T08:23:16.286Z"
+          - "Oracle-Tags.CreatedOn" = "2024-01-31T13:00:50.436Z"
         } -> null
-      - etag                  = "1dfa5de0-4ae5-461e-97cf-934c7bb46183" -> null
+      - etag                  = "18bbcde8-c6d2-4dea-a908-eca821638e12" -> null
       - freeform_tags         = {} -> null
-      - id                    = "n/xxxxxx/b/testBucket-EN" -> null
+      - id                    = "n/xxxxxxxxxxxxxx/b/testBucket-EN" -> null
       - is_read_only          = false -> null
       - metadata              = {} -> null
       - name                  = "testBucket-EN" -> null
-      - namespace             = "xxxxxx" -> null
+      - namespace             = "xxxxxxxxxxxxxx" -> null
       - object_events_enabled = false -> null
       - replication_enabled   = false -> null
       - storage_tier          = "Standard" -> null
-      - time_created          = "2024-01-23 08:23:16.294 +0000 UTC" -> null
+      - time_created          = "2024-01-31 13:00:50.468 +0000 UTC" -> null
       - versioning            = "Disabled" -> null
     }
 
 Plan: 0 to add, 0 to change, 1 to destroy.
 
 Changes to Outputs:
-  - bucket_accessType     = "NoPublicAccess" -> null
-  - bucket_bucket_id      = "ocid1.bucket.oc1.ap-tokyo-1.aaaaaaaawmbtgmrgrzpfeetpgsluryz6z7t7353vvyr2osyzfambqauojfua" -> null
-  - bucket_compartment_id = "ocid1.compartment.oc1..aaaaaaaalubx563bjkva37sfjligqtzcnvi24p53cl7dd6biztqnt3ruvpqq" -> null
-  - bucket_created_by     = "ocid1.user.oc1..aaaaaaaaknw52hmzwhbazctpl63shmbd7jerks4ywo4i2w5hpspdu2wixt3q" -> null
-  - bucket_name           = "testBucket-EN" -> null
-  - bucket_namespace      = "xxxxxx" -> null
-  - bucket_storage_tier   = "Standard" -> null
-  - target_compartment    = "ocid1.compartment.oc1..aaaaaaaalubx563bjkva37sfjligqtzcnvi24p53cl7dd6biztqnt3ruvpqq" -> null
+  - bucket_name        = {
+      - access_type                  = "NoPublicAccess"
+      - approximate_count            = "0"
+      - approximate_size             = "0"
+      - auto_tiering                 = "Disabled"
+      - bucket_id                    = "ocid1.bucket.oc1.ap-tokyo-1.xaaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      - compartment_id               = "ocid1.compartment.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      - created_by                   = "ocid1.user.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      - defined_tags                 = {
+          - "Oracle-Tags.CreatedBy" = "oracleidentitycloudservice/hoge@hoge.com"
+          - "Oracle-Tags.CreatedOn" = "2024-01-31T13:00:50.436Z"
+        }
+      - etag                         = "18bbcde8-c6d2-4dea-a908-eca821638e12"
+      - freeform_tags                = {}
+      - id                           = "n/xxxxxxxxxxxxxx/b/testBucket-EN"
+      - is_read_only                 = false
+      - kms_key_id                   = null
+      - metadata                     = {}
+      - name                         = "testBucket-EN"
+      - namespace                    = "xxxxxxxxxxxxxx"
+      - object_events_enabled        = false
+      - object_lifecycle_policy_etag = null
+      - replication_enabled          = false
+      - retention_rules              = []
+      - storage_tier                 = "Standard"
+      - time_created                 = "2024-01-31 13:00:50.468 +0000 UTC"
+      - timeouts                     = null
+      - versioning                   = "Disabled"
+    } -> null
+  - target_compartment = "ocid1.compartment.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" -> null
 
 Do you really want to destroy all resources?
   Terraform will destroy all your managed infrastructure, as shown above.
@@ -237,9 +326,10 @@ Do you really want to destroy all resources?
 
   Enter a value: yes
 
-oci_objectstorage_bucket.test_bucket: Destroying... [id=n/xxxxxx/b/testBucket-EN]
+oci_objectstorage_bucket.test_bucket: Destroying... [id=n/xxxxxxxxxxxxxx/b/testBucket-EN]
 oci_objectstorage_bucket.test_bucket: Destruction complete after 2s
 
-Destroy complete! Resources: 1 destroyed.
+Apply complete! Resources: 0 added, 0 changed, 1 destroyed.
+
 ```
 

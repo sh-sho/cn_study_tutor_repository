@@ -3,6 +3,11 @@ variable "tenancy_ocid" {
   type = string
 }
 
+variable "compartment_id" {
+  description = "コンパートメントのOCID"
+  type = string
+}
+
 variable "user_ocid" {
   description = "APIキーアカウントのOCID"
   type = string
