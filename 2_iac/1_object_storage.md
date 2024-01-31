@@ -19,7 +19,7 @@
 ※ OCIのテナンシーOCID、ユーザーOCID、APIキーの情報を記載したterraform.tfvarsは記載していない
 
 `terraform.tfvars`
-```yaml
+```hcl
 tenancy_ocid="ocid1.tenancy.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 user_ocid="ocid1.user.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxx"
 private_key_path="/home/opc/.ssh/xxxxxxx.pem"
