@@ -1,7 +1,6 @@
 output "vcn_id" {
   value = oci_core_vcn.generated_oci_core_vcn.id
 }
-
 output "cidr_blocks" {
     value = oci_core_vcn.generated_oci_core_vcn.cidr_blocks
 }
@@ -21,7 +20,6 @@ output "dns_label" {
     value = oci_core_vcn.generated_oci_core_vcn.dns_label
 }
 
-# test output
 output "private_security_list" {
     value = [oci_core_security_list.private_security_list.id]
 }

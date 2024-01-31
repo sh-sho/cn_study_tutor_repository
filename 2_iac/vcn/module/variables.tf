@@ -1,4 +1,4 @@
-# OCI info
+
 variable "tenancy_ocid" {
     description = "tenancy ocid"
     type = string
@@ -24,4 +24,3 @@ variable "region" {
     type = string
     default = "ap-tokyo-1"
 }
-

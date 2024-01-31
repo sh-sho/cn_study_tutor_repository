@@ -1,4 +1,3 @@
-# OCI info
 variable "tenancy_ocid" {
     description = "tenancy ocid"
     type = string
@@ -26,7 +25,6 @@ variable "region" {
 }
 
 
-# VCN
 variable "cidr_blocks" {
     description = "VCN cider block"
     type = string
@@ -43,73 +41,89 @@ variable "dns_label" {
     default = "vcntest"
 }
 
-# private subet
+
 variable "cidr_block_private" {
+    description = "private subet cider block"
     type = string
     default = "10.0.1.0/24"
 }
 variable "subnet_display_name_private" {
+    description = "private subet display name"
     type = string
     default = "private_subnet"
 }
 variable "subnet_dns_label_private" {
+    description = "private subet dns label"
     type = string
     default = "private"
 }
 
-# public subnet
 variable "cidr_block_public" {
+    description = "public subet cider block"
     type = string
     default = "10.0.2.0/24"
 }
 variable "subnet_display_name_public" {
+    description = "public subet display name"
     type = string
     default = "public_subnet"
 }
 variable "subnet_dns_label_public" {
+    description = "public subet dns label"
     type = string
     default = "public"
 }
 
-# security list
 variable "security_list_display_name_private" {
+    description = "private security list display name"
     type = string
     default = "private_security_list"
 }
+variable "security_list_display_name_public" {
+    description = "public security list display name"
+    type = string
+    default = "public_security_list"
+}
+
 variable "security_list_ingress_security_rules_protocol_private" {
-    description = "private all, ICMP (1), TCP (6), UDP (17), and ICMPv6 (58)"
+    description = "private ingress protocol. all, ICMP (1), TCP (6), UDP (17), and ICMPv6 (58)"
     type = string
     default = "6"
 }
 variable "security_list_ingress_security_rules_protocol_public" {
-    description = "public all, ICMP (1), TCP (6), UDP (17), and ICMPv6 (58)"
+    description = "public ingress protocol. all, ICMP (1), TCP (6), UDP (17), and ICMPv6 (58)"
     type = string
     default = "6"
 }
 variable "security_list_ingress_security_rules_source_private" {
+    description = "private ingress souce cidr block"
     type = string
     default = "10.0.0.0/16"
 }
 variable "security_list_ingress_security_rules_source_public" {
-    description = "public ingress souce cidr"
+    description = "public ingress souce cidr block"
     type = string
     default = "0.0.0.0/0"
 }
 
 variable "security_list_ingress_security_rules_tcp_options_destination_port_range_min_private" {
+    description = "privagte ingress min tcp port"
     type = string
     default = "443"
 }
 variable "security_list_ingress_security_rules_tcp_options_destination_port_range_max_private" {
+    description = "privagte ingress max tcp port"
     type = string
     default = "443"
 }
 
 variable "security_list_ingress_security_rules_tcp_options_destination_port_range_min_public" {
+    description = "public ingress min tcp port"
     type = string
     default = "22"
 }
 variable "security_list_ingress_security_rules_tcp_options_destination_port_range_max_public" {
+    description = "public ingress max tcp port"
     type = string
     default = "22"
 }
@@ -126,18 +140,12 @@ variable "security_list_egress_security_rules_destination_private" {
 }
 
 variable "security_list_egress_security_rules_protocol_public" {
-    description = "public egress protocal"
+    description = "public egress protocal. all, ICMP (1), TCP (6), UDP (17), and ICMPv6 (58)"
     type = string
     default = "all"
 }
 variable "security_list_egress_security_rules_protocol_private" {
-    description = "private egress protocal"
+    description = "private egress protocal. all, ICMP (1), TCP (6), UDP (17), and ICMPv6 (58)"
     type = string
     default = "all"
 }
-
-variable "security_list_display_name_public" {
-    type = string
-    default = "public_security_list"
-}
-

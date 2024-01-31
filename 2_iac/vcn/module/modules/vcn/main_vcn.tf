@@ -41,4 +41,3 @@ output "default_security_list_id" {
 output "default_route_table_id" {
     value = oci_core_vcn.generated_oci_core_vcn.default_route_table_id
 }
-

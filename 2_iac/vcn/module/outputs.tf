@@ -10,8 +10,6 @@ output "vcn_display_name" {
 output "vcn_dns_label" {
     value = module.vcn.dns_label
 }
-
-# test output
 output "default_route_table" {
     value = [oci_core_default_route_table.route_table_service_gateway.id]
 }
