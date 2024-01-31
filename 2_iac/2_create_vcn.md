@@ -17,7 +17,7 @@
 
 ### Terraform設定ファイル
 
-- VCNを作成するためのリソース情報を記載：  [main.tf](./vcn/nodule/main.tf)
+- VCNを作成するためのリソース情報を記載：  [main.tf](./vcn/nomodule/main.tf)
 - `terraform apply`実行後の出力結果で表示する項目を記載：  [outputs.tf](./vcn/nomodule/outputs.tf)
 - OCIへアクセスするためのプロバイダー情報を記載：  [provider.tf](./vcn/nomodule/provider.tf)
 - 変数として使用する情報を記載：  [variables.tf](./vcn/nomodule/variables.tf)
