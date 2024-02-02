@@ -30,7 +30,3 @@ variable "instance_availability_domain" {
   type = string
   default = "TGjA:PHX-AD-1"
 }
-
-
-
-

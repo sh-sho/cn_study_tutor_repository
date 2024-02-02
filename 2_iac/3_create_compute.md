@@ -72,6 +72,8 @@ public-ip-for-compute-instance = "158.101.16.30"
 time-created = "2024-02-02 06:40:50.038 +0000 UTC"
 ```
 
+VCNとComputeが作成されます。SSHで接続してOCI CLIなどがインストールされているか確認してください。
+
 ## 3. ComputeのTerraformの内容
 以下、ComputeのTerraformの内容です。
 ```terraform

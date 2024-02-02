@@ -11,5 +11,3 @@ output "public_subnet_id" {
 output "private_subnet_id" {
     value = oci_core_subnet.private_subnet.id
 }
-
-

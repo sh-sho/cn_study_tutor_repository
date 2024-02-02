@@ -183,7 +183,3 @@ resource "oci_core_subnet" "private_subnet" {
     prohibit_public_ip_on_vnic = true
     route_table_id = oci_core_route_table.private_route_table.id
 }
-
-
-
-

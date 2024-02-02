@@ -40,7 +40,3 @@ variable "region" {
 variable "instance_availability_domain" {
   default = "TGjA:PHX-AD-1"
 }
-
-
-
-
