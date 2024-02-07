@@ -25,8 +25,3 @@ variable "public_ssh_key_path" {
   type = string
   default = "~/.ssh/id_rsa.pub"
 }
-
-variable "instance_availability_domain" {
-  type = string
-  default = "TGjA:PHX-AD-1"
-}

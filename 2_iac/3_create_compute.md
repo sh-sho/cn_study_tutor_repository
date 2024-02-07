@@ -74,6 +74,21 @@ time-created = "2024-02-02 06:40:50.038 +0000 UTC"
 
 VCNとComputeが作成されます。SSHで接続してOCI CLIなどがインストールされているか確認してください。
 
+以下に`main.tfvars`のサンプルを記載しています。
+
+```tf
+display_vnic_name = "test_vnic"
+display_instance_name = "test_instance"
+vcn_display_name = "test_VCN"
+compartment_id = "ocid1.compartment.oc1..axxx"
+tenancy_ocid = "ocid1.tenancy.oc1..axxx"
+user_ocid = "ocid1.user.oc1..axxx"
+fingerprint = "xx:xx:xxxxx"
+private_key_path = "<PRIVATE_API_KEY_PATH>"
+public_ssh_key_path = "<PUBLIC_KEY_PATH>"
+```
+
+
 ## 3. ComputeのTerraformの内容
 以下、ComputeのTerraformの内容です。
 ```terraform
@@ -132,8 +147,6 @@ locale: ja_JP.utf8
 package_update: true
 package_upgrade: true
 packages:
-    # docker install
-    - docker.io
     - apt-transport-https
     - ca-certificates
     - curl

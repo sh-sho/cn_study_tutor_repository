@@ -36,7 +36,3 @@ variable "public_ssh_key_path" {
 variable "region" {
   default = "us-phoenix-1"
 }
-
-variable "instance_availability_domain" {
-  default = "TGjA:PHX-AD-1"
-}

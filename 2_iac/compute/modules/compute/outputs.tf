@@ -1,37 +1,37 @@
 # Outputs for compute instance
 
-output "public-ip-for-compute-instance" {
+output "public_ip_for_compute_instance" {
   value = oci_core_instance.ubuntu_instance.public_ip
 }
 
-output "instance-name" {
+output "instance_name" {
   value = oci_core_instance.ubuntu_instance.display_name
 }
 
-output "instance-OCID" {
+output "instance_ocid" {
   value = oci_core_instance.ubuntu_instance.id
 }
 
-output "instance-region" {
+output "instance_region" {
   value = oci_core_instance.ubuntu_instance.region
 }
 
-output "instance-shape" {
+output "instance_shape" {
   value = oci_core_instance.ubuntu_instance.shape
 }
 
-output "instance-state" {
+output "instance_state" {
   value = oci_core_instance.ubuntu_instance.state
 }
 
-output "instance-OCPUs" {
+output "instance_OCPUs" {
   value = oci_core_instance.ubuntu_instance.shape_config[0].ocpus
 }
 
-output "instance-memory-in-GBs" {
+output "instance_memory_in_GBs" {
   value = oci_core_instance.ubuntu_instance.shape_config[0].memory_in_gbs
 }
 
-output "time-created" {
+output "time_created" {
   value = oci_core_instance.ubuntu_instance.time_created
 }

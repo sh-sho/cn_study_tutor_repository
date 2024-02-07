@@ -7,9 +7,17 @@ terraform {
   }
 }
 
+data "oci_identity_availability_domains" "ads" {
+    compartment_id = "${var.compartment_id}"
+}
+
+locals {
+    availability_domain_name = data.oci_identity_availability_domains.ads.availability_domains[0].name
+}
+
 # compute
 resource "oci_core_instance" "ubuntu_instance" {
-    availability_domain = "${var.instance_availability_domain}"
+    availability_domain = "${local.availability_domain_name}"
     compartment_id = "${var.compartment_id}"
     shape = "VM.Standard.E4.Flex"
     create_vnic_details {
@@ -21,8 +29,8 @@ resource "oci_core_instance" "ubuntu_instance" {
     
     shape_config {
         baseline_ocpu_utilization = "BASELINE_1_2"
-        memory_in_gbs = 64
-        ocpus = 2
+        memory_in_gbs = 16
+        ocpus = 1
     }
     source_details {
         source_id = "${var.source_ocid}"
