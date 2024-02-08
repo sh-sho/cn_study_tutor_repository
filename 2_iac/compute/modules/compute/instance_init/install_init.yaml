@@ -1,0 +1,65 @@
+#cloud-config
+timezone: Asia/Tokyo
+locale: ja_JP.utf8
+package_update: true
+package_upgrade: true
+packages:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - software-properties-common
+    - gnupg
+    - build-essential
+    - zlib1g-dev
+    - libncurses5-dev
+    - libgdbm-dev
+    - libnss3-dev
+    - libssl-dev
+    - libreadline-dev
+    - libffi-dev
+    - libsqlite3-dev
+    - wget
+    - libbz2-dev
+    - python3-pip
+    - python3-venv
+
+final_message: "######### Final Message ########"
+
+runcmd:
+    # docker install
+    - echo 'docker Install'
+    - sudo install -m 0755 -d /etc/apt/keyrings
+    - sudo curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" -o /etc/apt/keyrings/docker.asc
+    - sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+    - echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] "https://download.docker.com/linux/ubuntu" $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    - sudo apt-get -y update
+    - sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    - echo 'docker Finish'
+
+    
+    # kubectl install
+    - echo 'kubectl Install'
+    - curl -LO "https://dl.k8s.io/release/v1.29.1/bin/linux/amd64/kubectl"
+    - chmod +x ./kubectl
+    - sudo mv ./kubectl /usr/local/bin/kubectl
+    - kubectl version --client
+    - echo 'kubectl Finish'
+    
+    # oci-cli install
+    - echo 'oci-cli Install'
+    - apt update -y
+    #- apt -y install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
+    - apt update -y
+    # - apt install python3 
+    # - apt -y install python3-pip
+    # - apt -y install python3-venv
+    - python3 -m venv oracle-cli
+    - source oracle-cli/bin/activate
+    - pip install oci-cli
+    - echo 'oci-cli Finish'
+
+    # fn project
+    - echo 'fn project Install'
+    - curl -LSs "https://raw.githubusercontent.com/fnproject/cli/master/install" | sh
+    - echo 'fn project Finish'
