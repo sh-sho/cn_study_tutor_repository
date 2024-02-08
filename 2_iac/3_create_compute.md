@@ -101,9 +101,18 @@ terraform {
   }
 }
 
+data "oci_identity_availability_domains" "ads" {
+    compartment_id = "${var.compartment_id}"
+}
+
+locals {
+    availability_domain_name = data.oci_identity_availability_domains.ads.availability_domains[0].name
+    source_ocid = "ocid1.image.oc1.phx.aaaaaaaa6dxlvblwz5msd3cqlmuy4inpytvsbjwyecpstlvak3llgyt4oqba"
+}
+
 # compute
 resource "oci_core_instance" "ubuntu_instance" {
-    availability_domain = "${var.instance_availability_domain}"
+    availability_domain = "${local.availability_domain_name}"
     compartment_id = "${var.compartment_id}"
     shape = "VM.Standard.E4.Flex"
     create_vnic_details {
@@ -115,11 +124,11 @@ resource "oci_core_instance" "ubuntu_instance" {
     
     shape_config {
         baseline_ocpu_utilization = "BASELINE_1_2"
-        memory_in_gbs = 64
-        ocpus = 2
+        memory_in_gbs = 16
+        ocpus = 1
     }
     source_details {
-        source_id = "${var.source_ocid}"
+        source_id = "${local.source_ocid}"
         source_type = "image"
         boot_volume_size_in_gbs = 100
     }
@@ -152,21 +161,32 @@ packages:
     - curl
     - software-properties-common
     - gnupg
+    - build-essential
+    - zlib1g-dev
+    - libncurses5-dev
+    - libgdbm-dev
+    - libnss3-dev
+    - libssl-dev
+    - libreadline-dev
+    - libffi-dev
+    - libsqlite3-dev
+    - wget
+    - libbz2-dev
+    - python3-pip
+    - python3-venv
 
 final_message: "######### Final Message ########"
 
 runcmd:
     # docker install
     - echo 'docker Install'
-    - sudo apt-get -y update
-    - sudo apt-get -y install ca-certificates curl
-    - sudo install -m 0755 -d /etc/apt/keyrings
-    - sudo curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" -o /etc/apt/keyrings/docker.asc
-    - sudo chmod a+r /etc/apt/keyrings/docker.asc
+    - install -m 0755 -d /etc/apt/keyrings
+    - curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" -o /etc/apt/keyrings/docker.asc
+    - chmod a+r /etc/apt/keyrings/docker.asc
 
     - echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] "https://download.docker.com/linux/ubuntu" $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    - sudo apt-get -y update
-    - sudo apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    - apt-get -y update
+    - apt-get -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     - echo 'docker Finish'
 
     
@@ -174,18 +194,13 @@ runcmd:
     - echo 'kubectl Install'
     - curl -LO "https://dl.k8s.io/release/v1.29.1/bin/linux/amd64/kubectl"
     - chmod +x ./kubectl
-    - sudo mv ./kubectl /usr/local/bin/kubectl
+    - mv ./kubectl /usr/local/bin/kubectl
     - kubectl version --client
     - echo 'kubectl Finish'
     
     # oci-cli install
     - echo 'oci-cli Install'
     - apt update -y
-    - apt -y install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
-    - apt update -y
-    - apt install python3 
-    - apt -y install python3-pip
-    - apt -y install python3-venv
     - python3 -m venv oracle-cli
     - source oracle-cli/bin/activate
     - pip install oci-cli
@@ -195,7 +210,6 @@ runcmd:
     - echo 'fn project Install'
     - curl -LSs "https://raw.githubusercontent.com/fnproject/cli/master/install" | sh
     - echo 'fn project Finish'
-
 
 ```
 
