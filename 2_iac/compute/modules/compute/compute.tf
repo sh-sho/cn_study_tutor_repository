@@ -13,6 +13,7 @@ data "oci_identity_availability_domains" "ads" {
 
 locals {
     availability_domain_name = data.oci_identity_availability_domains.ads.availability_domains[0].name
+    source_ocid = "ocid1.image.oc1.phx.aaaaaaaa6dxlvblwz5msd3cqlmuy4inpytvsbjwyecpstlvak3llgyt4oqba"
 }
 
 # compute
@@ -33,7 +34,7 @@ resource "oci_core_instance" "ubuntu_instance" {
         ocpus = 1
     }
     source_details {
-        source_id = "${var.source_ocid}"
+        source_id = "${local.source_ocid}"
         source_type = "image"
         boot_volume_size_in_gbs = 100
     }

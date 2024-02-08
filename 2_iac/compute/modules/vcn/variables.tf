@@ -59,11 +59,6 @@ variable "public_security_list_egress_security_rules_destination" {
     default = "0.0.0.0/0"
 }
 
-variable "public_security_list_egress_security_rules_protocol" {
-    type = string
-    default = "ALL"
-}
-
 variable "public_security_list_ingress_security_rules_protocol_2" {
     type = string
     default = "1"

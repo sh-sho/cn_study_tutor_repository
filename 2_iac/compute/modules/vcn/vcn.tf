@@ -28,6 +28,7 @@ locals {
     private_security_list_ingress_security_rules_tcp_options_destination_port_range_min = "22"
     private_security_list_ingress_security_rules_icmp_options_type_2 = "3"
     private_security_list_ingress_security_rules_icmp_options_code_2 = "4"
+    public_security_list_egress_security_rules_protocol = "ALL"
     public_security_list_ingress_security_rules_protocol_3 = "0.0.0.0/0"
     public_security_list_ingress_security_rules_icmp_options_type_3 = "3"
     public_security_list_ingress_security_rules_protocol = "6"
@@ -109,7 +110,7 @@ resource "oci_core_security_list" "public_security_list" {
     display_name = var.public_security_list_display_name
     egress_security_rules {
         destination = var.public_security_list_egress_security_rules_destination
-        protocol = var.public_security_list_egress_security_rules_protocol
+        protocol = local.public_security_list_egress_security_rules_protocol
     }
     ingress_security_rules {
         protocol = local.public_security_list_ingress_security_rules_protocol

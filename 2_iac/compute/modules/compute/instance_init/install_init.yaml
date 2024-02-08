@@ -4,21 +4,30 @@ locale: ja_JP.utf8
 package_update: true
 package_upgrade: true
 packages:
-    # docker install
-    - docker.io
     - apt-transport-https
     - ca-certificates
     - curl
     - software-properties-common
     - gnupg
+    - build-essential
+    - zlib1g-dev
+    - libncurses5-dev
+    - libgdbm-dev
+    - libnss3-dev
+    - libssl-dev
+    - libreadline-dev
+    - libffi-dev
+    - libsqlite3-dev
+    - wget
+    - libbz2-dev
+    - python3-pip
+    - python3-venv
 
 final_message: "######### Final Message ########"
 
 runcmd:
     # docker install
     - echo 'docker Install'
-    - sudo apt-get -y update
-    - sudo apt-get -y install ca-certificates curl
     - sudo install -m 0755 -d /etc/apt/keyrings
     - sudo curl -fsSL "https://download.docker.com/linux/ubuntu/gpg" -o /etc/apt/keyrings/docker.asc
     - sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -40,11 +49,11 @@ runcmd:
     # oci-cli install
     - echo 'oci-cli Install'
     - apt update -y
-    - apt -y install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
+    #- apt -y install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev libsqlite3-dev wget libbz2-dev
     - apt update -y
-    - apt install python3 
-    - apt -y install python3-pip
-    - apt -y install python3-venv
+    # - apt install python3 
+    # - apt -y install python3-pip
+    # - apt -y install python3-venv
     - python3 -m venv oracle-cli
     - source oracle-cli/bin/activate
     - pip install oci-cli

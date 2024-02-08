@@ -1,8 +1,3 @@
-variable "source_ocid" {
-  type = string
-  default = "ocid1.image.oc1.phx.aaaaaaaa6dxlvblwz5msd3cqlmuy4inpytvsbjwyecpstlvak3llgyt4oqba"
-}
-
 variable "subnet_ocid" {
   type = string
 }
