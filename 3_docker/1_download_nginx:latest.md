@@ -1,10 +1,9 @@
 # nginx:latestを作業用のVMにダウンロードしてください
 <br>
 
-## Dockerを作業用VMにインストールする
-折角なので公式ドキュメントを見てみましょう。<br>
-ubuntuの場合のページは　[https://docs.docker.com/engine/install/ubuntu/](こちら)です。
-ドキュメントに沿って、インストールします。
+## (未実施の場合は)Dockerを作業用VMにインストールする
+インストール方法は公式ドキュメントに記載があります。<br>
+ubuntuの場合のページは　[https://docs.docker.com/engine/install/ubuntu/](こちら)<br>
 
 インストール出来たら、`sudo docker version` でインストールの確認をします。
 
@@ -43,16 +42,19 @@ Server: Docker Engine - Community
 
 ## nginxをpullする
 
+dockerを起動させる
 ```console
 ubuntu@public-instance-tokunaga-ubuntu2:~$ sudo systemctl start docker
 ```
 
+サーバ起動時にdockerも自動的に起動するようにする
 ```console
 ubuntu@public-instance-tokunaga-ubuntu2:~$ sudo systemctl enable docker
 Synchronizing state of docker.service with SysV service script with /lib/systemd/systemd-sysv-install.
 Executing: /lib/systemd/systemd-sysv-install enable docker
 ```
 
+nginxのインストール
 ```console
 ubuntu@public-instance-tokunaga-ubuntu2:~$ sudo docker pull nginx
 Using default tag: latest
@@ -69,9 +71,4 @@ Status: Downloaded newer image for nginx:latest
 docker.io/library/nginx:latest
 ```
 
-```console
-ubuntu@public-instance-tokunaga-ubuntu2:~$ sudo docker images
-REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
-nginx         latest    247f7abff9f7   3 months ago   187MB
-hello-world   latest    d2c94e258dcb   9 months ago   13.3kB
-```
+
