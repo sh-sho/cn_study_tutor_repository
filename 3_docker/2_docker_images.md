@@ -8,3 +8,6 @@ REPOSITORY                              TAG       IMAGE ID       CREATED        
 nginx                                   latest    247f7abff9f7   3 months ago   187MB
 hello-world                             latest    d2c94e258dcb   9 months ago   13.3kB
 ```
+
+## 参考（公式ドキュメントのリンク）
+[docker image ls](https://docs.docker.com/engine/reference/commandline/image_ls/)
