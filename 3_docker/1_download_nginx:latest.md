@@ -72,4 +72,8 @@ Status: Downloaded newer image for nginx:latest
 docker.io/library/nginx:latest
 ```
 
+## 参考（公式ドキュメントのリンク）
+[docker pull ](https://docs.docker.com/engine/reference/commandline/image_pull/)
+
+
 
