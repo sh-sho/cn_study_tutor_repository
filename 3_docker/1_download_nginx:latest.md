@@ -3,7 +3,8 @@
 
 ## (未実施の場合は)Dockerを作業用VMにインストールする
 インストール方法は公式ドキュメントに記載があります。<br>
-ubuntuの場合のページは　[https://docs.docker.com/engine/install/ubuntu/](こちら)<br>
+ちなみにubuntuへのインストール方法は[こちら](https://docs.docker.com/engine/install/ubuntu/)
+<br>
 
 インストール出来たら、`sudo docker version` でインストールの確認をします。
 
