@@ -1,5 +1,10 @@
 # nginx:latestを作業用のVMにダウンロードしてください
 <br>
+Dockerをインストールして使用するためにrootまたはsudo権限が必要です。<br>
+非rootユーザにDockerへのアクセスを許可したい場合は
+
+[こちら](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user/)
+を参照ください
 
 ## (未実施の場合は)Dockerを作業用VMにインストールする
 インストール方法は公式ドキュメントに記載があります。<br>
@@ -74,6 +79,7 @@ docker.io/library/nginx:latest
 
 ## 参考（公式ドキュメントのリンク）
 [docker pull ](https://docs.docker.com/engine/reference/commandline/image_pull/)
+
 
 
 
