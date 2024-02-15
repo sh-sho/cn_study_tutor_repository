@@ -23,3 +23,6 @@ nginx                                   latest    247f7abff9f7   3 months ago   
 iad.ocir.io/orasejapan/tokunaga/nginx   1.0.0     247f7abff9f7   3 months ago   187MB
 
 ```
+
+## 参考（公式ドキュメントのリンク）
+[docker image tag](https://docs.docker.com/engine/reference/commandline/image_tag/)
