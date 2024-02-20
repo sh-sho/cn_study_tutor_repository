@@ -62,7 +62,7 @@ Executing: /lib/systemd/systemd-sysv-install enable docker
 
 nginxのインストール
 ```console
-ubuntu@public-instance-tokunaga-ubuntu2:~$ sudo docker pull nginx
+ubuntu@public-instance-tokunaga-ubuntu2:~$ sudo docker image pull nginx
 Using default tag: latest
 latest: Pulling from library/nginx
 e1caac4eb9d2: Pull complete 
