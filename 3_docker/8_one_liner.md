@@ -64,3 +64,6 @@ d03ffa449f29   wordpress:latest   "docker-entrypoint.s…"   15 seconds ago     
 ### 3. wordpressにアクセス
 OCIコンソールからセキュリティリストのイングレスルールに宛先ポート8000を追加する
 `http://MACHINE_VM_IP:8000`　でアクセス可能
+
+## 参考ドキュメント
+[クィックスタート: Compose と WordPress](https://docs.docker.jp/compose/wordpress.html)
