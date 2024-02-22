@@ -9,6 +9,9 @@ Docker Composeをインストールしていない人は、上記のドキュメ
 
 ### 1. docker-compose.ymlの記載
 
+ググればいろいろな人がYAMLファイルを解説してますが、公式の案内としては、以下らへん。
+[Docker Compose の概要](https://docs.docker.com/compose/)
+[github-Compose file](https://github.com/compose-spec/compose-spec/blob/master/spec.md#compose-file)
 
 <details><summary>（例）ファイルの中身</summary><div>
   
@@ -62,9 +65,16 @@ d03ffa449f29   wordpress:latest   "docker-entrypoint.s…"   15 seconds ago     
 ```
 
 ### 3. wordpressにアクセス
-OCIコンソールからセキュリティリストのイングレスルールに宛先ポート8000を追加する
+OCIコンソールからセキュリティリストのイングレスルールに宛先ポート8000を追加する<br>
 `http://MACHINE_VM_IP:8000`　でアクセス可能
+<br>
+<img width="391" alt="スクリーンショット 2024-02-22 142310" src="https://github.com/sh-sho/cn_study_tutor_repository/assets/140580748/b5e437c2-d187-4a8f-924b-b6b1e529086a">
+
+
+
+
 
 ## 参考ドキュメント
 [クィックスタート: Compose と WordPress](https://docs.docker.jp/compose/wordpress.html)　<br>
 [Docker Compose の概要](https://docs.docker.com/compose/)
+[github-Compose file](https://github.com/compose-spec/compose-spec/blob/master/spec.md#compose-file)
