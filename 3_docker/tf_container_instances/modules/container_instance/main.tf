@@ -13,7 +13,6 @@ data "oci_identity_availability_domains" "ads" {
 
 locals {
     availability_domain_name = data.oci_identity_availability_domains.ads.availability_domains[0].name
-    source_ocid = "ocid1.image.oc1.phx.aaaaaaaa6dxlvblwz5msd3cqlmuy4inpytvsbjwyecpstlvak3llgyt4oqba"
     wordpress_image_url = "wordpress:latest"
     mysql_image_url = "mysql:5.7"
     container_instance_shape = "CI.Standard.E4.Flex"

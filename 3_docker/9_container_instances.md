@@ -2,6 +2,64 @@
 
 8.で使用したwordpressとmysqlのイメージを使用する。
 
+## CLI
+cliの準備として、`oci container-instances container-instance create --generate-param-json-input xxx > xxx.json`を使い以下のjsonファイルを作成する。
+
+```console
+container_instance_cli/
+├── containers.json
+├── shape-config.json
+└── vnics.json
+```
+
+それぞれのファイルに必要な内容を記載する。
+`containers.json`
+```json
+[
+  {
+    "displayName": "wordpress_ci",
+    "imageUrl": "wordpress:latest",
+    "isResourcePrincipalDisabled": true
+  },
+  {
+    "displayName": "mysql_ci",
+    "imageUrl": "mysql:5.7",
+    "isResourcePrincipalDisabled": true
+  }
+]
+
+```
+
+`shape-config.json`
+```json
+{
+  "ocpus": 1
+}
+
+```
+
+`vnics.json`
+```json
+[
+  {
+    "isPublicIpAssigned": true,
+    "subnetId": "ocid1.subnet.oc1.phx.aaaaxxxx"
+  }
+]
+```
+
+以下のコマンドでContainer Instanceを起動する。
+```console
+$ pwd
+/home/ubuntu/cn_study_tutor_repository/3_docker/container_instance_cli
+
+$ oci container-instances container-instance create --availability-domain TGjA:PHX-AD-1 --compartment-id $C --containers=file://./containers.json --shape CI.Standard.E4.Flex --shape-config=file://./shape-config.json --vnics=file://./vnics.json --display-name cn_container_instance --debug
+```
+OCIコンソールのContainer Instanceからアクセスする。
+![alt text](./images/image9-1.png)
+
+
+## Terraform
 以下の構成でTerraformファイルを作成する。
 
 ### Terraformファイル構造
