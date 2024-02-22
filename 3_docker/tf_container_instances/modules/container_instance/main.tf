@@ -1,43 +1,3 @@
-# 9. 複数コンテナをContainer Instancesで起動し、WordPressが動作することを確認してください。(wordpress:latest, mysql:5.7)
-
-8.で使用したwordpressとmysqlのイメージを使用する。
-
-以下の構成でTerraformファイルを作成する。
-
-### Terraformファイル構造
-```
-tf_container_instances/
-├── main.tf
-├── main.tfvars
-├── main.tfvars.examples
-├── modules
-│   ├── container_instance
-│   │   ├── main.tf
-│   │   ├── main.tfvars
-│   │   ├── outputs.tf
-│   │   └── variables.tf
-│   └── vcn
-│       ├── outputs.tf
-│       ├── variables.tf
-│       ├── vcn.tf
-│       └── vcn.tfvars
-├── provider.tf
-├── terraform.tfstate
-├── terraform.tfstate.backup
-└── variables.tf
-```
-
-以下のTerraformファイルでContainer Instanceを建て、wordpressとmysqlを動作させる。
-(vcnもTerraformに記載しているが、既存のものを用いてもよい)
-
-```console
-terraform destroy -var-file=./main.tfvars -auto-approve
-```
-
-以下のTerraformでContainer Instanceが作成される。
-
-### Container Instances
-```
 terraform {
   required_providers {
     oci = {
@@ -100,5 +60,3 @@ resource "oci_container_instances_container_instance" "mysql_container_instance"
         volume_type = "CONFIGFILE"
     }
 }
-
-```
