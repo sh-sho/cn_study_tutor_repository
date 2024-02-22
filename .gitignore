@@ -34,3 +34,4 @@ override.tf.json
 terraform.rc
 
 *.terraform
+./3_docker/container_instance_cli/vnics.json
