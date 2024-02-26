@@ -9,9 +9,9 @@ Docker Composeをインストールしていない人は、上記のドキュメ
 
 ### 1. docker-compose.ymlの記載
 
-ググればいろいろな人がYAMLファイルを解説してますが、公式の案内としては、以下らへん。
-[Docker Compose の概要](https://docs.docker.com/compose/)
-[github-Compose file](https://github.com/compose-spec/compose-spec/blob/master/spec.md#compose-file)
+ググればいろいろな人がYAMLファイルを解説してますが、公式の案内としては、以下らへん。<br>
+[Docker Compose の概要](https://docs.docker.com/compose/)<br>
+[github-Compose file](https://github.com/compose-spec/compose-spec/blob/master/spec.md#compose-file)<br>
 
 <details><summary>（例）ファイルの中身</summary><div>
   
