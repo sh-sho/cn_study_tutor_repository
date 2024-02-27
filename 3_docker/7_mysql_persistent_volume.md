@@ -116,7 +116,8 @@ ubuntu@public-instance-tokunaga-ubuntu2:~$ sudo docker container ls
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
 
-### 5.同じボリュームを指定してコンテナを起動
+### 5.同じボリュームを指定して別名のコンテナを起動
+今回は別名のコンテナ（toku-mysql2）を指定
 
 ```console
 ubuntu@public-instance-tokunaga-ubuntu2:~$ sudo docker volume ls
