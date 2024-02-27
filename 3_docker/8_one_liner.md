@@ -11,13 +11,12 @@ Docker Composeをインストールしていない人は、上記のドキュメ
 
 ググればいろいろな人がYAMLファイルを解説してますが、公式の案内としては、以下らへん。<br>
 [Docker Compose の概要](https://docs.docker.com/compose/)<br>
+[The Compose file](https://docs.docker.com/compose/compose-application-model/#the-compose-file)<br>
 [github-Compose file](https://github.com/compose-spec/compose-spec/blob/master/spec.md#compose-file)<br>
 
 <details><summary>（例）ファイルの中身</summary><div>
   
 ```console
-version: '3'
-
 services:
    db:
      image: mysql:5.7
