@@ -7,7 +7,7 @@ Docker Composeは、複数のDockerコンテナを定義し、一度に実行す
 
 Docker Composeをインストールしていない人は、上記のドキュメントを見ながらインストールしてください。
 
-### 1. docker-compose.ymlの記載
+### 1. compose.yamlの記載
 
 ググればいろいろな人がYAMLファイルを解説してますが、公式の案内としては、以下らへん。<br>
 [Docker Compose の概要](https://docs.docker.com/compose/)<br>
@@ -45,7 +45,7 @@ volumes:
 ```
 </div></details>
 
-### 2. docker-compose.ymlの起動
+### 2. compose.yamlの起動
 
 起動して、コンテナ一覧を確認
 ```console
