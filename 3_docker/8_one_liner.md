@@ -67,7 +67,8 @@ d03ffa449f29   wordpress:latest   "docker-entrypoint.s…"   15 seconds ago     
 OCIコンソールからセキュリティリストのイングレスルールに宛先ポート8000を追加する<br>
 `http://MACHINE_VM_IP:8000`　でアクセス可能
 <br>
-<img width="391" alt="スクリーンショット 2024-02-22 142310" src="https://github.com/sh-sho/cn_study_tutor_repository/assets/140580748/b5e437c2-d187-4a8f-924b-b6b1e529086a">
+
+<img width="391" alt="スクリーンショット 2024-02-22" src="https://github.com/sh-sho/cn_study_tutor_repository/assets/140580748/62681e44-1d3d-449f-bb99-6f7ccfdaf177">
 
 
 
