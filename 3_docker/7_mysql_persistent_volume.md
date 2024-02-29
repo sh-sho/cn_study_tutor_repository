@@ -23,7 +23,7 @@ local     test-vol
 
 ### 2.mySQLをpullする
 ```console
-ubuntu@public-instance-tokunaga-ubuntu2:~/3_docker$ sudo docker pull mysql:5.7
+ubuntu@public-instance-tokunaga-ubuntu2:~/3_docker$ sudo docker image pull mysql:5.7
 5.7: Pulling from library/mysql
 20e4dcae4c69: Pull complete 
 1c56c3d4ce74: Pull complete 
