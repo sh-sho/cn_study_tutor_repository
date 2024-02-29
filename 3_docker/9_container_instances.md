@@ -3,49 +3,44 @@
 8.で使用したwordpressとmysqlのイメージを使用する。
 
 ## CLI
-cliの準備として、`oci container-instances container-instance create --generate-param-json-input xxx > xxx.json`を使い以下のjsonファイルを作成する。
+cliの準備として、`oci container-instances container-instance create --generate-full-command-json-input > container_instance.json`を使い以下のjsonファイルを作成する。
 
 ```console
 container_instance_cli/
-├── containers.json
-├── shape-config.json
-└── vnics.json
+└── container_instance.json
 ```
 
 それぞれのファイルに必要な内容を記載する。
-`containers.json`
-```json
-[
-  {
-    "displayName": "wordpress_ci",
-    "imageUrl": "wordpress:latest",
-    "isResourcePrincipalDisabled": true
-  },
-  {
-    "displayName": "mysql_ci",
-    "imageUrl": "mysql:5.7",
-    "isResourcePrincipalDisabled": true
-  }
-]
-
-```
-
-`shape-config.json`
+`container_instance.json`
 ```json
 {
-  "ocpus": 1
+  "availabilityDomain": "TGjA:PHX-AD-1",
+  "compartmentId": "string",
+  "containers": [
+    {
+      "displayName": "wordpress_ci",
+      "imageUrl": "wordpress:latest",
+      "isResourcePrincipalDisabled": true
+    },
+    {
+      "displayName": "mysql_ci",
+      "imageUrl": "mysql:5.7",
+      "isResourcePrincipalDisabled": true
+    }
+  ],
+  "displayName": "cn_container_instance",
+  "shape": "CI.Standard.E4.Flex",
+  "shapeConfig": {
+    "ocpus": 1
+  },
+  "vnics": [
+    {
+      "isPublicIpAssigned": true,
+      "subnetId": "ocid1.subnet.oc1.phx.aaaaaaaaihdojcbtj6tv56dhphjtuqkasxu3ab3i42eyxne7dvpalwcx2loa"
+    }
+  ]
 }
 
-```
-
-`vnics.json`
-```json
-[
-  {
-    "isPublicIpAssigned": true,
-    "subnetId": "ocid1.subnet.oc1.phx.aaaaxxxx"
-  }
-]
 ```
 
 以下のコマンドでContainer Instanceを起動する。
@@ -53,7 +48,7 @@ container_instance_cli/
 $ pwd
 /home/ubuntu/cn_study_tutor_repository/3_docker/container_instance_cli
 
-$ oci container-instances container-instance create --availability-domain TGjA:PHX-AD-1 --compartment-id $C --containers=file://./containers.json --shape CI.Standard.E4.Flex --shape-config=file://./shape-config.json --vnics=file://./vnics.json --display-name cn_container_instance --debug
+$ oci container-instances container-instance create --compartment-id $C --from-json file://./container_instance.json --debug
 ```
 OCIコンソールのContainer Instanceからアクセスする。
 ![alt text](./images/image9-1.png)
@@ -89,7 +84,7 @@ tf_container_instances/
 (vcnもTerraformに記載しているが、既存のものを用いてもよい)
 
 ```console
-terraform destroy -var-file=./main.tfvars -auto-approve
+terraform apply -destroy -var-file=./main.tfvars -auto-approve  
 ```
 
 以下のTerraformでContainer Instanceが作成される。
@@ -106,12 +101,11 @@ terraform {
 }
 
 data "oci_identity_availability_domains" "ads" {
-    compartment_id = "${var.compartment_id}"
+    compartment_id = var.compartment_id
 }
 
 locals {
     availability_domain_name = data.oci_identity_availability_domains.ads.availability_domains[0].name
-    source_ocid = "ocid1.image.oc1.phx.aaaaaaaa6dxlvblwz5msd3cqlmuy4inpytvsbjwyecpstlvak3llgyt4oqba"
     wordpress_image_url = "wordpress:latest"
     mysql_image_url = "mysql:5.7"
     container_instance_shape = "CI.Standard.E4.Flex"

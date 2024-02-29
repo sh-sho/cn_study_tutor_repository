@@ -59,21 +59,6 @@ variable "public_security_list_egress_security_rules_destination" {
     default = "0.0.0.0/0"
 }
 
-variable "public_security_list_ingress_security_rules_protocol_2" {
-    type = string
-    default = "1"
-}
-
-variable "public_security_list_ingress_security_rules_protocol_3" {
-    type = string
-    default = "1"
-}
-
-variable "public_security_list_ingress_security_rules_source_3" {
-    type = string
-    default = "10.10.0.0/16"
-}
-
 # Security List (Private)
 variable "private_security_list_display_name" {
     type = string
@@ -88,31 +73,6 @@ variable "private_security_list_egress_security_rules_destination" {
 variable "private_security_list_ingress_security_rules_source" {
     type = string
     default = "10.10.0.0/16"
-}
-
-variable "private_security_list_ingress_security_rules_protocol_2" {    
-    type = string
-    default = "1"
-}
-
-variable "private_security_list_ingress_security_rules_source_2" {
-    type = string
-    default = "0.0.0.0/0"
-}
-
-variable "private_security_list_ingress_security_rules_protocol_3" {
-    type = string
-    default = "1"
-}
-
-variable "private_security_list_ingress_security_rules_source_3" {
-    type = string
-    default = "10.10.0.0/16"
-}
-
-variable "private_security_list_ingress_security_rules_icmp_options_type_3" {
-    type = string
-    default = "3"
 }
 
 # Subnet (Public)

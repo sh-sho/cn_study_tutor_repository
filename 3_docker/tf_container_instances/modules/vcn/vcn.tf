@@ -23,22 +23,18 @@ locals {
     private_route_table_route_rules_destination = "0.0.0.0/0"
     private_route_table_route_rules_destination_type = "CIDR_BLOCK"
     private_security_list_egress_security_rules_protocol = "ALL"
-    private_security_list_ingress_security_rules_protocol = "6"
     private_security_list_ingress_security_rules_tcp_options_destination_port_range_max = "22"
     private_security_list_ingress_security_rules_tcp_options_destination_port_range_min = "22"
-    private_security_list_ingress_security_rules_icmp_options_type_2 = "3"
-    private_security_list_ingress_security_rules_icmp_options_code_2 = "4"
     public_security_list_egress_security_rules_protocol = "ALL"
-    public_security_list_ingress_security_rules_protocol_3 = "0.0.0.0/0"
-    public_security_list_ingress_security_rules_icmp_options_type_3 = "3"
-    public_security_list_ingress_security_rules_protocol = "6"
-    public_security_list_ingress_security_rules_source = "0.0.0.0/0"
-    public_security_list_ingress_security_rules_source_2 = "0.0.0.0/0"
     public_security_list_ingress_security_rules_tcp_options_destination_port_range_max = "22"
     public_security_list_ingress_security_rules_tcp_options_destination_port_range_min = "22"
-    public_security_list_ingress_security_rules_icmp_options_type_2 = "3"
-    public_security_list_ingress_security_rules_icmp_options_code_2 = "4"
+    icmp_protocol = "1"
     tcp_protocol = "6"
+    icmp_type_3 = "3"
+    icmp_code_4 = "4"
+    icmp_cidr_block = "10.10.0.0/16"
+    public_subnet_cidr_block = "10.10.0.0/24"
+    private_subnet_cidr_block = "10.10.1.0/24"
     all_address = "0.0.0.0/0"
 }
 
@@ -115,30 +111,29 @@ resource "oci_core_security_list" "public_security_list" {
         protocol = local.public_security_list_egress_security_rules_protocol
     }
     ingress_security_rules {
-        protocol = local.public_security_list_ingress_security_rules_protocol
-        source = local.public_security_list_ingress_security_rules_source
-
+        protocol = local.tcp_protocol
+        source = local.all_address
         tcp_options {
             max = local.public_security_list_ingress_security_rules_tcp_options_destination_port_range_max
             min = local.public_security_list_ingress_security_rules_tcp_options_destination_port_range_min
         }
     }
     ingress_security_rules {
-        protocol = var.public_security_list_ingress_security_rules_protocol_2
-        source = local.public_security_list_ingress_security_rules_source_2
+        protocol = local.icmp_protocol
+        source = local.all_address
 
         icmp_options {
-            type = local.public_security_list_ingress_security_rules_icmp_options_type_2
-            code = local.public_security_list_ingress_security_rules_icmp_options_code_2
+            type = local.icmp_type_3
+            code = local.icmp_code_4
             }
     }
     ingress_security_rules {
-        protocol = var.public_security_list_ingress_security_rules_protocol_3
-        source = var.public_security_list_ingress_security_rules_source_3
+        protocol = local.icmp_protocol
+        source = local.icmp_cidr_block
 
         icmp_options {
             #Required
-            type = local.public_security_list_ingress_security_rules_icmp_options_type_3
+            type = local.icmp_type_3
             }
     }
     ingress_security_rules {
@@ -158,7 +153,7 @@ resource "oci_core_security_list" "private_security_list" {
         protocol = local.private_security_list_egress_security_rules_protocol
     }
     ingress_security_rules {
-        protocol = local.private_security_list_ingress_security_rules_protocol
+        protocol = local.tcp_protocol
         source = var.private_security_list_ingress_security_rules_source
 
         tcp_options {
@@ -167,20 +162,20 @@ resource "oci_core_security_list" "private_security_list" {
         }
     }
     ingress_security_rules {
-        protocol = var.private_security_list_ingress_security_rules_protocol_2
-        source = var.private_security_list_ingress_security_rules_source_2
+        protocol = local.icmp_protocol
+        source = local.all_address
 
         icmp_options {
-            type = local.private_security_list_ingress_security_rules_icmp_options_type_2
-            code = local.private_security_list_ingress_security_rules_icmp_options_code_2
+            type = local.icmp_type_3
+            code = local.icmp_code_4
             }
     }
     ingress_security_rules {
-        protocol = var.private_security_list_ingress_security_rules_protocol_3
-        source = var.private_security_list_ingress_security_rules_source_3
+        protocol = local.icmp_protocol
+        source = local.icmp_cidr_block
 
         icmp_options {
-            type = var.private_security_list_ingress_security_rules_icmp_options_type_3
+            type = local.icmp_type_3
             }
     }
 }
