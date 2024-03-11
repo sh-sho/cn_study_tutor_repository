@@ -47,6 +47,27 @@ ubuntu@public-instance-tokunaga-ubuntu2:~/4_fn/pythonfn$ echo '{"name":"こん�
 ２で作成した'func.py'を書き換えるだけ
 locateが”US”の文字を受け取ったときだけ“message”: “Hello”を返すというif文を実装する。
 
+deploy
+```console
+ubuntu@public-instance-tokunaga-ubuntu2:~/4_fn/pythonfn2$ sudo fn deploy --app hello-app2 --local
+Deploying pythonfn2 to app: hello-app2
+Bumped to version 0.0.5
+Using Container engine docker
+Building image pythonfn2:0.0.5 .
+Updating function pythonfn2 using image pythonfn2:0.0.5...
+Successfully created function: pythonfn2 with pythonfn2:0.0.5
+```
 
+invoke<br>
+{"locate":"US"}だと、{"message": "Hello"}が返ってきているが、
+{"locate":"USA"}だと、{"message": "こんにちは"}が返ってきているのを確認
+```console
+ubuntu@public-instance-tokunaga-ubuntu2:~/4_fn/pythonfn2$ echo '{"locate":"US"}' | sudo fn invoke hello-app2 pythonfn2
+{"message": "Hello"}
+ubuntu@public-instance-tokunaga-ubuntu2:~/4_fn/pythonfn2$ echo '{"locate":"USA"}' | sudo fn invoke hello-app2 pythonfn2 | jq
+{
+  "message": "こんにちは"
+}
+```
 
 ### 4. で作成したFunctionをOCI Functionsとして実行してください
