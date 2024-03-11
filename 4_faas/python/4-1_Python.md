@@ -72,6 +72,32 @@ ubuntu@public-instance-tokunaga-ubuntu2:~/4_fn/pythonfn2$ echo '{"locate":"USA"}
 
 ### 4. で作成したFunctionをOCI Functionsとして実行してください
 
+`oci-devops-handson-app`という名前のアプリケーションをOCIコンソールで作成する
+<img width="553" alt="image" src="https://github.com/sh-sho/cn_study_tutor_repository/assets/140580748/4ffe69b1-a244-4b70-ba88-a2bf834951cc">
+
+contextを設定する。今回はus-ashburn-1のレジストリやコンパートメントを指定する。
+```console
+ritsuko_to@cloudshell:pythonfn2 (us-ashburn-1)$ fn list context
+CURRENT NAME            PROVIDER        API URL                                                 REGISTRY
+        default         oracle-cs
+*       us-ashburn-1    oracle-cs       https://functions.us-ashburn-1.oci.oraclecloud.com
+ritsuko_to@cloudshell:pythonfn2 (us-ashburn-1)$ fn update context oracle.compartment-id [compartment-ocid]
+Current context updated oracle.compartment-id with [compartment-ocid]
+ritsuko_to@cloudshell:pythonfn2 (us-ashburn-1)$ fn update context registry iad.ocir.io/orasejapan/tokunaga_func
+Current context updated registry with iad.ocir.io/orasejapan/tokunaga_func
+ritsuko_to@cloudshell:pythonfn2 (us-ashburn-1)$ fn update context oracle.profile "DEFAULT"
+Current context updated oracle.profile with DEFAULT
+ritsuko_to@cloudshell:pythonfn2 (us-ashburn-1)$ docker login iad.ocir.io
+Username (orasejapan/oracleidentitycloudservice/ritsuko.tokunaga@oracle.com): orasejapan/oracleidentitycloudservice/ritsuko.tokunaga@oracle.com
+Password: 
+WARNING! Your password will be stored unencrypted in /home/ritsuko_to/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+```
+deploy<br>
+ここで指定するアプリ名は、コンソール上で作成した`oci-devops-handson-app`を指定する
 ```console
 ritsuko_to@cloudshell:~ (us-ashburn-1)$ cd pythonfn2
 ritsuko_to@cloudshell:pythonfn2 (us-ashburn-1)$ fn deploy --app oci-devops-handson-app
@@ -94,11 +120,21 @@ Updating function pythonfn2 using image iad.ocir.io/orasejapan/tokunaga_func/pyt
 Successfully created function: pythonfn2 with iad.ocir.io/orasejapan/tokunaga_func/pythonfn2/pythonfn2:0.0.8
 ritsuko_to@cloudshell:pythonfn2 (us-ashburn-1)$ fn invoke oci-devops-handson-app fnpython2
 ```
+deployができると、コンソール上からもファンクションが追加されているのが確認できる。
+（今回はpythonfn2が追加されている）
+<img width="419" alt="image" src="https://github.com/sh-sho/cn_study_tutor_repository/assets/140580748/7c297f1c-7efe-46bf-9fbb-3c1d8fcdd087">
+
+またOCI上のレジストリにもアップロードされていることを確認
+<img width="613" alt="image" src="https://github.com/sh-sho/cn_study_tutor_repository/assets/140580748/d34ef41c-d823-4962-9065-b225597bb535">
+
+invoke<br>
 
 ```console
-ritsuko_to@cloudshell:pythonfn2 (us-ashburn-1)$ fn invoke oci-devops-handson-app pythonfn2
-{"message": "\u3053\u3093\u306b\u3061\u306f"}
-ritsuko_to@cloudshell:pythonfn2 (us-ashburn-1)$ fn invoke oci-devops-handson-app pythonfn2 | jq
+ritsuko_to@cloudshell:~ (us-ashburn-1)$ echo '{"locate":"US"}' | fn invoke oci-devops-handson-app pythonfn2 | jq
+{
+  "message": "Hello"
+}
+ritsuko_to@cloudshell:~ (us-ashburn-1)$ echo '{"locate":"USA"}' | fn invoke oci-devops-handson-app pythonfn2 | jq
 {
   "message": "こんにちは"
 }
