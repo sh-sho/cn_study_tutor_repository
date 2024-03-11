@@ -71,3 +71,35 @@ ubuntu@public-instance-tokunaga-ubuntu2:~/4_fn/pythonfn2$ echo '{"locate":"USA"}
 ```
 
 ### 4. で作成したFunctionをOCI Functionsとして実行してください
+
+```console
+ritsuko_to@cloudshell:~ (us-ashburn-1)$ cd pythonfn2
+ritsuko_to@cloudshell:pythonfn2 (us-ashburn-1)$ fn deploy --app oci-devops-handson-app
+Deploying pythonfn2 to app: oci-devops-handson-app
+Bumped to version 0.0.8
+Using Container engine docker
+Building image iad.ocir.io/orasejapan/tokunaga_func/pythonfn2/pythonfn2:0.0.8 TargetedPlatform:  amd64HostPlatform:  amd64
+..........................
+Using Container engine  docker  to push
+Pushing iad.ocir.io/orasejapan/tokunaga_func/pythonfn2/pythonfn2:0.0.8 to docker registry...The push refers to repository [iad.ocir.io/orasejapan/tokunaga_func/pythonfn2/pythonfn2]
+19fc9ab031fe: Pushed 
+cdc5c91948f0: Pushed 
+15d75410485c: Pushed 
+58f82f48752b: Pushed 
+03d5f9d77ddf: Pushed 
+401c9daff908: Pushed 
+7e9f3f6c7a0a: Pushed 
+0.0.8: digest: sha256:916bd4cf905ad375f2ba0b5866360d2c75c42570927941fec45491e3504096cb size: 1780
+Updating function pythonfn2 using image iad.ocir.io/orasejapan/tokunaga_func/pythonfn2/pythonfn2:0.0.8...
+Successfully created function: pythonfn2 with iad.ocir.io/orasejapan/tokunaga_func/pythonfn2/pythonfn2:0.0.8
+ritsuko_to@cloudshell:pythonfn2 (us-ashburn-1)$ fn invoke oci-devops-handson-app fnpython2
+```
+
+```console
+ritsuko_to@cloudshell:pythonfn2 (us-ashburn-1)$ fn invoke oci-devops-handson-app pythonfn2
+{"message": "\u3053\u3093\u306b\u3061\u306f"}
+ritsuko_to@cloudshell:pythonfn2 (us-ashburn-1)$ fn invoke oci-devops-handson-app pythonfn2 | jq
+{
+  "message": "こんにちは"
+}
+```
