@@ -1,0 +1,7 @@
+schema_version: 20180708
+name: func-g-queue
+version: 0.0.70
+runtime: go
+build_image: fnproject/go:1.19-dev
+run_image: fnproject/go:1.19
+entrypoint: ./func
