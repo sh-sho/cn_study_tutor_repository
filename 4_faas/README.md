@@ -9,8 +9,9 @@
 
 ## 4-2 Function as Serviceの基礎
 
-1. API GatewayのAPIエンドポイントを実行して、#4-1(4)で作成したFunctionsが実行されるようにしてください
+1. [API GatewayのAPIエンドポイントを実行して、#4-1(4)で作成したFunctionsが実行されるようにしてください](./4-2-1.md)
 2. Object Storage – BucketにCSVファイルが置かれたことをトリガーにOCI Functionsを実行し、そのCSVファイルをJSON形式に変換して別のBucketに格納してください
+   [Go言語](./4-2-2_go.md)
 3. OCI Streamingに格納されたメッセージをSCHを用いてOCI Functionsに連携してください
     1. Functionはそのメッセージをログに出力し、OCI Loggingから参照できるようにしてください
 4. FunctionsからBaseDB or ADBに接続してSELECT文の結果を表示してください
