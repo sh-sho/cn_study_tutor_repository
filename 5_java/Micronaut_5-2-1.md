@@ -8,6 +8,8 @@
 
 ### SDKMANのインストール
 
+バージョンは最新の4.3.7としている。
+
 ```console
 [opc@admin2-vm1 5-2-Java_Standard_Micronout]$ curl -s "https://get.sdkman.io"
 

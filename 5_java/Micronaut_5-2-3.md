@@ -198,7 +198,7 @@ micronautguide_gradle                    latest         fc41f1856685   45 second
 hello-world                              0.1            3a01b854e85e   9 minutes ago    284MB
 ```
 
-#####  
+##### 作成したイメージをビルドする。コンテナ側のポート8080に対し、ローカルのポートは6060としている。
 
 ```console
 [opc@admin2-vm1 micronautguide_gradle]$ docker run --name micronautguide_gradle -p 6060:8080 micronautguide_gradle:latest
@@ -209,9 +209,6 @@ hello-world                              0.1            3a01b854e85e   9 minutes
 |_|  |_|_|\___|_|  \___/|_| |_|\__,_|\__,_|\__|
 21:31:54.867 [main] INFO  io.micronaut.runtime.Micronaut - Startup completed in 10ms. Server Running: http://976877fbb5d9:8080
 ```
-
-
-
 
 別コンソールで`curl http://localhost:6060 `を実行
 
