@@ -1,8 +1,8 @@
-## 5-2-1 Helidon or Micronautで簡単なアプリケーションを実装してください 
+## 5-2-1 Helidonで簡単なアプリケーションを実装してください 
 
-### Helidon もしくは、Micronaut は実装時点の最新バージョンを使用してください
+### Helidonは実装時点の最新バージョンを使用してください
 
-今回はHelidonを使用。バージョンは最新の4.0.6としている。
+バージョンは最新の4.0.6としている。
 
 ```console
 [opc@admin2-vm1 5-2-Java_Standard]$ curl -O https://helidon.io/cli/latest/linux/helidon
