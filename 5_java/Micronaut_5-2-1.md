@@ -1,11 +1,5 @@
 ## 5-2-1 Micronautで簡単なアプリケーションを実装してください
 
-### 参考サイト
-
-- [Micronaut QuickStart](https://docs.micronaut.io/latest/guide/index.html#quickStart)
-
-- [CREATE AN EXECUTABLE JAR OF A MICRONAUT APPLICATION](https://guides.micronaut.io/latest/executable-jar-gradle-java.html)
-
 ### SDKMANのインストール
 
 バージョンは最新の4.3.7としている。
@@ -346,4 +340,9 @@ public class HelloControllerTest {
 Hello World
 ```
 
+## 参考サイト
+
+- [Micronaut QuickStart](https://docs.micronaut.io/latest/guide/index.html#quickStart)
+
+- [CREATE AN EXECUTABLE JAR OF A MICRONAUT APPLICATION](https://guides.micronaut.io/latest/executable-jar-gradle-java.html)
 

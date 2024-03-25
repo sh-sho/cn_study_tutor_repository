@@ -1,9 +1,5 @@
 ## 5-2-2 #5-1-1で実装したアプリケーションをExecutable JARとして実行してください
 
-## 参考サイト
-
-[CREATE AN EXECUTABLE JAR OF A MICRONAUT APPLICATION](https://guides.micronaut.io/latest/executable-jar-gradle-java.html)
-
 ### サーバーアプリケーション作成（Gradle）
 
 作成したプロジェクトは[こちら](./micronautguide_gradle/)
@@ -98,3 +94,7 @@ BUILD SUCCESSFUL in 13s
 [opc@admin2-vm1 micronautguide]$ curl http://localhost:8080
 {"message":"Hello World"}
 ```
+
+## 参考サイト
+
+[CREATE AN EXECUTABLE JAR OF A MICRONAUT APPLICATION](https://guides.micronaut.io/latest/executable-jar-gradle-java.html)

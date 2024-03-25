@@ -1,10 +1,6 @@
 ## 5-2-3 #5-1-1で実装したアプリケーションをコンテナとして実行してください
 
-### 参考サイト
-
-[GraalVM Tools for Micronaut](https://docs.oracle.com/cd/F44923_01/enterprise/22/docs/tools/vscode/micronaut-extension/#extension-settings)
-
-#### 1. Native Imageを作成
+### Native Imageを作成
 
 ```console
 [opc@admin2-vm1 micronautguide_gradle]$ ./gradlew dockerBuildNative
@@ -169,9 +165,9 @@ BUILD SUCCESSFUL in 7m 20s
 
 ```
 
-イメージビルド時のCPUの消費が大きい・・・
+(Tips)イメージビルド時のCPUの消費が大きい・・・
 
-`top`コマンドの実行結果
+`top`コマンドの実行結果。2コアをフルに使い切っても7分20秒かかっている。
 
 ```console
 top - 06:28:11 up 55 days, 13:05,  0 users,  load average: 3.88, 3.09, 1.81
@@ -188,7 +184,7 @@ MiB Swap:   4096.0 total,    554.3 free,   3541.7 used.    754.5 avail Mem
 1830004 opc       20   0 4537004 499752   4380 S   1.0   6.5 460:15.69 java                     
 ```
 
-##### Dockerイメージの確認
+### Dockerイメージの確認
 
 ```console
 [opc@admin2-vm1 micronautguide_gradle]$ docker images
@@ -198,7 +194,7 @@ micronautguide_gradle                    latest         fc41f1856685   45 second
 hello-world                              0.1            3a01b854e85e   9 minutes ago    284MB
 ```
 
-##### 作成したイメージをビルドする。コンテナ側のポート8080に対し、ローカルのポートは6060としている。
+### 作成したイメージをビルドする。コンテナ側のポート8080に対し、ローカルのポートは6060としている。
 
 ```console
 [opc@admin2-vm1 micronautguide_gradle]$ docker run --name micronautguide_gradle -p 6060:8080 micronautguide_gradle:latest
@@ -216,3 +212,7 @@ hello-world                              0.1            3a01b854e85e   9 minutes
 [opc@admin2-vm1 ~]$ curl http://localhost:6060
 {"message":"Hello World"}
 ```
+
+## 参考サイト
+
+[GraalVM Tools for Micronaut](https://docs.oracle.com/cd/F44923_01/enterprise/22/docs/tools/vscode/micronaut-extension/#extension-settings)
