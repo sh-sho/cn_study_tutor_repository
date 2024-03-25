@@ -121,7 +121,7 @@ Start development loop? (default: n):
 作成したプロジェクトは[こちら](./quickstart-mp/)
 
 
-### 以下のような条件を満たすアプリケーションをHelidon またはMicronaut で実装してください
+### 以下のような条件を満たすアプリケーションをHelidonで実装してください
 - `curl http://localhost:8080/health`を実行すると、`{“status”: “UP”, ”checks”: []}`と返却される
 - `curl http://localhost:8080/metrics`を実行すると、アプリケーションのメトリクス情報が返却される
 - `curl http://localhost:8080/greet`を実行すると、`{“message”: “Hello world”}`と返却される
