@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.oracle.traning.data.AppTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in com.oracle.traning.data.AppTest
