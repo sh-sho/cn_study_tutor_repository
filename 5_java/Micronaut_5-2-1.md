@@ -139,159 +139,69 @@ mn>
 
 作成したプロジェクトは[こちら](./micronautguide/)
 
+アプリケーションを作成するときに、MetricsとHealthに必要なfeatureを追加しておく。`{"message": "Hello World"}`は、別途プログラムを作成する。
+
 ```console
-[opc@admin2-vm1 5-2-Java_Standard_Micronout]$ mn create-app example.micronaut.micronautguide --build=maven --lang=java
+[opc@admin2-vm1 5-2-Java_Standard_Micronout]$ mn create-app example.micronaut.micronautguide \
+    --features=micrometer-annotation,data-jdbc,flyway,graalvm,validation,http-client,management \
+    --build=maven \
+    --lang=java \
+    --test=junit
 | Application created at /home/opc/cn-study_public/5-2-Java_Standard_Micronout/micronautguide
 [opc@admin2-vm1 5-2-Java_Standard_Micronout]$ cd micronautguide/
 [opc@admin2-vm1 micronautguide]$ tree
 .
 ├── aot-jar.properties
+├── aot-native-image.properties
 ├── micronaut-cli.yml
 ├── mvnw
 ├── mvnw.bat
 ├── pom.xml
 ├── README.md
-└── src
-    ├── main
-    │   ├── java
-    │   │   └── example
-    │   │       └── micronaut
-    │   │           └── Application.java
-    │   └── resources
-    │       ├── application.properties
-    │       └── logback.xml
-    └── test
-        └── java
-            └── example
-                └── micronaut
-                    └── MicronautguideTest.java
+├── src
+│   ├── main
+│   │   ├── java
+│   │   │   └── example
+│   │   │       └── micronaut
+│   │   │           └── Application.java
+│   │   └── resources
+│   │       ├── application.properties
+│   │       └── logback.xml
+│   └── test
+│       └── java
+│           └── example
+│               └── micronaut
+│                   └── MicronautguideTest.java
+└── target
+    ├── classes
+    │   └── example
+    │       └── micronaut
+    │           └── Application.class
+    ├── generated-sources
+    │   └── annotations
+    ├── generated-test-sources
+    │   └── test-annotations
+    └── test-classes
+        ├── example
+        │   └── micronaut
+        │       ├── $MicronautguideTest$Definition$Exec.class
+        │       ├── $MicronautguideTest$Definition$Reference.class
+        │       ├── $MicronautguideTest$Definition.class
+        │       └── MicronautguideTest.class
+        └── META-INF
+            └── micronaut
+                └── io.micronaut.inject.BeanDefinitionReference
+                    └── example.micronaut.$MicronautguideTest$Definition$Reference
 
-10 directories, 12 files
-
+24 directories, 17 files
+[opc@admin2-vm1 micronautguide]$ 
 ```
 
-`./src/main/java/example/micronaut/HelloController.java`ファイルを作成
 
-```java
-package example.micronaut;
 
-import io.micronaut.http.MediaType;
-import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
-import io.micronaut.http.annotation.Produces;
+#### `curl http://localhost:8080/health`を実行すると、`{“status”: “UP”, ”checks”: []}` と返却される
 
-@Controller("/hello") 
-public class HelloController {
-    @Get 
-    @Produces(MediaType.TEXT_PLAIN) 
-    public String index() {
-        return "Hello World"; 
-    }
-}
-```
-
-`src/test/java/example/micronaut/HelloControllerTest.java`ファイルを作成
-
-```java
-package example.micronaut;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import io.micronaut.http.HttpRequest;
-import io.micronaut.http.MediaType;
-import io.micronaut.http.client.HttpClient;
-import io.micronaut.http.client.annotation.Client;
-import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
-import org.junit.jupiter.api.Test;
-
-import jakarta.inject.Inject;
-
-@MicronautTest 
-public class HelloControllerTest {
-
-    @Inject
-    @Client("/")  
-    HttpClient client;
-
-    @Test
-    public void testHello() {
-        HttpRequest<?> request = HttpRequest.GET("/hello").accept(MediaType.TEXT_PLAIN);  
-        String body = client.toBlocking().retrieve(request);
-
-        assertNotNull(body);
-        assertEquals("Hello World", body);
-    }
-}
-```
-
-テストを実行
-
-```console
-[opc@admin2-vm1 micronautguide]$ ./mvnw test
-[INFO] Scanning for projects...
-[INFO]
-[INFO] ------------------< example.micronaut:micronautguide >------------------
-[INFO] Building micronautguide 0.1
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO]
-[INFO] --- enforcer:3.4.1:enforce (micronaut-enforce) @ micronautguide ---
-[INFO] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
-[INFO] Rule 1: io.micronaut.maven.enforcer.CheckSnakeYaml passed
-[INFO]
-[INFO] --- mn:4.4.2:generate-openapi-generic (default-generate-openapi-generic) @ micronautguide ---
-[INFO]
-[INFO] --- mn:4.4.2:generate-openapi-client (default-generate-openapi-client) @ micronautguide ---
-[INFO]
-[INFO] --- mn:4.4.2:generate-openapi-server (default-generate-openapi-server) @ micronautguide ---
-[INFO]
-[INFO] --- resources:3.3.1:resources (default-resources) @ micronautguide ---
-[INFO] Copying 2 resources from src/main/resources to target/classes
-[INFO]
-[INFO] --- compiler:3.12.1:compile (default-compile) @ micronautguide ---
-[INFO] Recompiling the module because of changed source code.
-[INFO] Compiling 2 source files with javac [debug parameters release 17] to target/classes
-[INFO] Creating bean classes for 1 type elements
-[INFO]
-[INFO] --- resources:3.3.1:testResources (default-testResources) @ micronautguide ---
-[INFO] skip non existing resourceDirectory /home/opc/cn-study_public/5-2-Java_Standard_Micronout/micronautguide/src/test/resources
-[INFO]
-[INFO] --- compiler:3.12.1:testCompile (default-testCompile) @ micronautguide ---
-[INFO] Recompiling the module because of changed dependency.
-[INFO] Compiling 2 source files with javac [debug parameters release 17] to target/test-classes
-[INFO] Creating bean classes for 2 type elements
-[INFO]
-[INFO] --- mn:4.4.2:start-testresources-service (default-start-testresources-service) @ micronautguide ---
-[INFO]
-[INFO] --- surefire:3.2.5:test (default-test) @ micronautguide ---
-[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
-[INFO]
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running example.micronaut.HelloControllerTest
-21:49:25.221 [main] INFO  i.m.c.DefaultApplicationContext$RuntimeConfiguredEnvironment - Established active environments: [test]
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.862 s -- in example.micronaut.HelloControllerTest
-[INFO] Running example.micronaut.MicronautguideTest
-21:49:26.374 [main] INFO  i.m.c.DefaultApplicationContext$RuntimeConfiguredEnvironment - Established active environments: [test]
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.142 s -- in example.micronaut.MicronautguideTest
-[INFO]
-[INFO] Results:
-[INFO]
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
-[INFO]
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.272 s
-[INFO] Finished at: 2024-03-25T21:49:26+09:00
-[INFO] ------------------------------------------------------------------------
-[opc@admin2-vm1 micronautguide]$
-
-```
-
-アプリケーションを実行
+アプリケーションを実行する。
 
 ```console
 [opc@admin2-vm1 micronautguide]$ ./mvnw mn:run
@@ -330,19 +240,85 @@ public class HelloControllerTest {
 | |\/| | |/ __| '__/ _ \| '_ \ / _` | | | | __|
 | |  | | | (__| | | (_) | | | | (_| | |_| | |_ 
 |_|  |_|_|\___|_|  \___/|_| |_|\__,_|\__,_|\__|
-21:51:45.736 [main] INFO  io.micronaut.runtime.Micronaut - Startup completed in 665ms. Server Running: http://admin2-vm1:8080
+06:20:55.265 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+06:20:55.406 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:devDb user=SA
+06:20:55.407 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+06:20:55.642 [main] INFO  i.m.flyway.AbstractFlywayMigration - Running migrations for database with qualifier [default]
+06:20:55.682 [main] INFO  org.flywaydb.core.FlywayExecutor - Database: jdbc:h2:mem:devDb (H2 2.2)
+06:20:55.688 [main] WARN  o.f.c.i.database.base.Database - Flyway upgrade recommended: H2 2.2.224 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+06:20:55.710 [main] INFO  o.f.c.i.s.JdbcTableSchemaHistory - Schema history table "PUBLIC"."flyway_schema_history" does not exist yet
+06:20:55.711 [main] INFO  o.f.core.internal.command.DbValidate - Successfully validated 0 migrations (execution time 00:00.015s)
+06:20:55.711 [main] WARN  o.f.core.internal.command.DbValidate - No migrations found. Are your locations set up correctly?
+06:20:55.723 [main] INFO  o.f.c.i.s.JdbcTableSchemaHistory - Creating Schema History table "PUBLIC"."flyway_schema_history" ...
+06:20:55.757 [main] INFO  o.f.core.internal.command.DbMigrate - Current version of schema "PUBLIC": << Empty Schema >>
+06:20:55.759 [main] INFO  o.f.core.internal.command.DbMigrate - Schema "PUBLIC" is up to date. No migration necessary.
+06:20:55.996 [main] WARN  i.m.c.i.b.jvm.ExecutorServiceMetrics - Failed to bind as java.util.concurrent.ThreadPerTaskExecutor is unsupported.
+06:20:55.997 [main] WARN  i.m.c.i.b.jvm.ExecutorServiceMetrics - Failed to bind as java.util.concurrent.ThreadPerTaskExecutor is unsupported.
+06:20:56.126 [main] INFO  io.micronaut.runtime.Micronaut - Startup completed in 1384ms. Server Running: http://admin2-vm1:8080
 ```
 
-別コンソールで`curl http://localhost:8080/hello `を実行
+別コンソールで`curl http://localhost:8080/health`を実行
 
 ```console
-[opc@admin2-vm1 micronautguide]$ curl http://localhost:8080/hello
-Hello World
+[opc@admin2-vm1 ~]$ curl http://localhost:8080/health
+{"status":"UP"}
+```
+
+#### `curl http://localhost:8080/metrics`を実行すると、アプリケーションのメトリクス情報が返却される
+
+アプリケーションを実行した状態で、別コンソールで`curl http://localhost:8080/metrics`を実行
+
+```console
+[opc@admin2-vm1 ~]$ curl http://localhost:8080/metrics
+{"names":["executor","executor.active","executor.completed","executor.pool.core","executor.pool.max","executor.pool.size","executor.queue.remaining","executor.queued","hikaricp.connections","hikaricp.connections.acquire","hikaricp.connections.active","hikaricp.connections.creation","hikaricp.connections.idle","hikaricp.connections.max","hikaricp.connections.min","hikaricp.connections.pending","hikaricp.connections.timeout","hikaricp.connections.usage","http.server.requests","jvm.buffer.count","jvm.buffer.memory.used","jvm.buffer.total.capacity","jvm.classes.loaded","jvm.classes.unloaded","jvm.gc.concurrent.phase.time","jvm.gc.live.data.size","jvm.gc.max.data.size","jvm.gc.memory.allocated","jvm.gc.memory.promoted","jvm.gc.pause","jvm.memory.committed","jvm.memory.max","jvm.memory.used","jvm.threads.daemon","jvm.threads.live","jvm.threads.peak","jvm.threads.started","jvm.threads.states","logback.events","process.cpu.usage","process.files.max","process.files.open","process.start.time","process.uptime","system.cpu.count","system.cpu.usage","system.load.average.1m"]}[opc@admin2-vm1 ~]$
+[opc@admin2-vm1 ~]$
+```
+
+特定のメトリクス項目を`/health`の後に追記すると、その情報が確認できる。
+
+```console
+[opc@admin2-vm1 ~]$ curl http://localhost:8080/metrics/process.start.time
+{"name":"process.start.time","measurements":[{"statistic":"VALUE","value":1.711574454305E9}],"description":"Start time of the process since unix epoch."}
+```
+
+#### `curl http://localhost:8080/greet`を実行すると、`{“message”: “Hello world”}` と返却される
+
+`./src/main/java/example/micronaut/HelloController.java`ファイルを作成
+
+```java
+package example.micronaut;
+
+import io.micronaut.http.annotation.Controller;
+import io.micronaut.http.annotation.Get;
+
+import java.util.Collections;
+import java.util.Map;
+
+@Controller("/greet")
+public class HelloController {
+
+    @Get 
+    public Map<String, Object> index() {
+        return Collections.singletonMap("message", "Hello World"); 
+    }
+}
+```
+
+アプリケーションを実行した状態で、別コンソールで`curl http://localhost:8080/greet`を実行
+
+```console
+[opc@admin2-vm1 ~]$ curl http://localhost:8080/greet
+{"message":"Hello World"}
 ```
 
 ## 参考サイト
 
 - [Micronaut QuickStart](https://docs.micronaut.io/latest/guide/index.html#quickStart)
 
-- [CREATE AN EXECUTABLE JAR OF A MICRONAUT APPLICATION](https://guides.micronaut.io/latest/executable-jar-gradle-java.html)
+- [Learn how to create a Hello World Micronaut application with a controller and a functional test.](https://guides.micronaut.io/latest/creating-your-first-micronaut-app-maven-java.html)
 
+- [Micronaut build plugins offer several ways to build Docker images - JAR, GraalVM native executable, CRaC](https://guides.micronaut.io/latest/micronaut-docker-image-maven-java.html)
+
+- [Learn how to expose a health endpoint for your Micronaut application.](https://guides.micronaut.io/latest/micronaut-health-endpoint-maven-java.html)
+
+- [Learn how to collect standard and custom metrics with the Micronaut framework.](https://guides.micronaut.io/latest/micronaut-metrics-maven-java.html)
