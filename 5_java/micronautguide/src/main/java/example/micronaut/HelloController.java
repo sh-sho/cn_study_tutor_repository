@@ -1,15 +1,16 @@
 package example.micronaut;
 
-import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
-import io.micronaut.http.annotation.Produces;
 
-@Controller("/hello") 
+import java.util.Collections;
+import java.util.Map;
+
+@Controller("/greet")
 public class HelloController {
+
     @Get 
-    @Produces(MediaType.TEXT_PLAIN) 
-    public String index() {
-        return "Hello World"; 
+    public Map<String, Object> index() {
+        return Collections.singletonMap("message", "Hello World"); 
     }
 }
