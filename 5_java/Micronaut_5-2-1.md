@@ -139,7 +139,7 @@ mn>
 
 作成したプロジェクトは[こちら](./micronautguide/)
 
-アプリケーションを作成するときに、MetricsとHealthに必要なfeatureを追加しておく。`{"message": "Hello World"}`は、別途プログラムを作成する。
+アプリケーションを作成するときに、MetricsとHealthに必要なfeatureを追加しておく。`/greet`に対する`{"message": "Hello World"}`は、別途プログラムを作成する。
 
 ```console
 [opc@admin2-vm1 5-2-Java_Standard_Micronout]$ mn create-app example.micronaut.micronautguide \
@@ -283,7 +283,7 @@ mn>
 
 #### `curl http://localhost:8080/greet`を実行すると、`{“message”: “Hello world”}` と返却される
 
-`./src/main/java/example/micronaut/HelloController.java`ファイルを作成
+[./src/main/java/example/micronaut/HelloController.java](./micronautguide/src/main/java/example/micronaut/HelloController.java)ファイルを作成
 
 ```java
 package example.micronaut;
