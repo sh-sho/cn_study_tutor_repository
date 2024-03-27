@@ -1,6 +1,6 @@
 ## 5-2-3 #5-1-1で実装したアプリケーションをコンテナとして実行してください
 
-### Dockerイメージを作成
+#### Dockerイメージを作成
 
 ```console
 [opc@admin2-vm1 micronautguide]$ ./mvnw package -Dpackaging=docker-native -Pgraalvm
@@ -367,7 +367,7 @@ cgr.dev/chainguard/wolfi-base            latest    d3e4469aaa37   6 hours ago   
 ghcr.io/graalvm/native-image-community   17-ol9    d4837dfb86a3   5 months ago    1.07GB
 ```
 
-### 作成したイメージをビルドする。コンテナ側のポート8080に対し、ローカルのポートは6060としている。
+#### 作成したイメージを実行する。コンテナ側のポート8080に対し、今回はローカルのポートは6060としてみる。
 
 ```console
 [opc@admin2-vm1 micronautguide]$ docker run --name micronautguide -p 6060:8080 micronautguide:latest
@@ -396,14 +396,13 @@ ghcr.io/graalvm/native-image-community   17-ol9    d4837dfb86a3   5 months ago  
 
 ```console
 [opc@admin2-vm1 ~]$ curl http://localhost:8080/greet
-{"message":"Hello World"}[opc@admin2-vm1 ~]$
+{"message":"Hello World"}
 [opc@admin2-vm1 ~]$
-[opc@admin2-vm1 ~]$ curl http://localhost:6060/greet
-{"message":"Hello World"}[opc@admin2-vm1 ~]$ curl http://localhost:6060/health
-{"status":"UP"}[opc@admin2-vm1 ~]$
+[opc@admin2-vm1 ~]$ curl http://localhost:6060/health
+{"status":"UP"}
 [opc@admin2-vm1 ~]$
 [opc@admin2-vm1 ~]$ curl http://localhost:6060/metrics
-{"names":["executor","executor.active","executor.completed","executor.pool.core","executor.pool.max","executor.pool.size","executor.queue.remaining","executor.queued","hikaricp.connections","hikaricp.connections.acquire","hikaricp.connections.active","hikaricp.connections.creation","hikaricp.connections.idle","hikaricp.connections.max","hikaricp.connections.min","hikaricp.connections.pending","hikaricp.connections.timeout","hikaricp.connections.usage","http.server.requests","jvm.classes.loaded","jvm.classes.unloaded","jvm.gc.live.data.size","jvm.gc.max.data.size","jvm.gc.memory.allocated","jvm.gc.memory.promoted","jvm.memory.committed","jvm.memory.max","jvm.memory.used","jvm.threads.daemon","jvm.threads.live","jvm.threads.peak","jvm.threads.started","jvm.threads.states","logback.events","process.cpu.usage","process.files.max","process.files.open","process.start.time","process.uptime","system.cpu.count","system.cpu.usage","system.load.average.1m"]}[opc@admin2-vm1 ~]$
+{"names":["executor","executor.active","executor.completed","executor.pool.core","executor.pool.max","executor.pool.size","executor.queue.remaining","executor.queued","hikaricp.connections","hikaricp.connections.acquire","hikaricp.connections.active","hikaricp.connections.creation","hikaricp.connections.idle","hikaricp.connections.max","hikaricp.connections.min","hikaricp.connections.pending","hikaricp.connections.timeout","hikaricp.connections.usage","http.server.requests","jvm.classes.loaded","jvm.classes.unloaded","jvm.gc.live.data.size","jvm.gc.max.data.size","jvm.gc.memory.allocated","jvm.gc.memory.promoted","jvm.memory.committed","jvm.memory.max","jvm.memory.used","jvm.threads.daemon","jvm.threads.live","jvm.threads.peak","jvm.threads.started","jvm.threads.states","logback.events","process.cpu.usage","process.files.max","process.files.open","process.start.time","process.uptime","system.cpu.count","system.cpu.usage","system.load.average.1m"]}
 [opc@admin2-vm1 ~]$
 [opc@admin2-vm1 ~]$
 ```
