@@ -2,7 +2,7 @@
 
 ### サーバーアプリケーション作成
 
-#### Executable JARを作成
+#### Executable JARファイルを作成
 
 ```console
 [opc@admin2-vm1 micronautguide]$ ./mvnw package
