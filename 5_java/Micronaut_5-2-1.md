@@ -137,9 +137,9 @@ mn>
 
 ### サーバーアプリケーション作成（Maven）
 
-作成したプロジェクトは[こちら](./micronautguide/)
-
 アプリケーションを作成するときに、MetricsとHealthに必要なfeatureを追加しておく。`/greet`に対する`{"message": "Hello World"}`は、別途プログラムを作成する。
+
+作成したプロジェクトは[こちら](./micronautguide/)
 
 ```console
 [opc@admin2-vm1 5-2-Java_Standard_Micronout]$ mn create-app example.micronaut.micronautguide \
