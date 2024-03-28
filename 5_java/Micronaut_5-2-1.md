@@ -197,7 +197,7 @@ mn>
 [opc@admin2-vm1 micronautguide]$ 
 ```
 
-
+### (補足) 一応実行して稼働状況を確認する。
 
 #### `curl http://localhost:8080/health`を実行すると、`{“status”: “UP”, ”checks”: []}` と返却される
 

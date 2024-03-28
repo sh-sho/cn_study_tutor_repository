@@ -392,7 +392,7 @@ ghcr.io/graalvm/native-image-community   17-ol9    d4837dfb86a3   5 months ago  
 
 ```
 
-別コンソールで`curl http://localhost:6060/xxxxx`を実行
+別コンソールで`curl http://localhost:6060/xxxxx`を実行（詳細は省略）
 
 ```console
 [opc@admin2-vm1 ~]$ curl http://localhost:8080/greet
@@ -403,7 +403,6 @@ ghcr.io/graalvm/native-image-community   17-ol9    d4837dfb86a3   5 months ago  
 [opc@admin2-vm1 ~]$
 [opc@admin2-vm1 ~]$ curl http://localhost:6060/metrics
 {"names":["executor","executor.active","executor.completed","executor.pool.core","executor.pool.max","executor.pool.size","executor.queue.remaining","executor.queued","hikaricp.connections","hikaricp.connections.acquire","hikaricp.connections.active","hikaricp.connections.creation","hikaricp.connections.idle","hikaricp.connections.max","hikaricp.connections.min","hikaricp.connections.pending","hikaricp.connections.timeout","hikaricp.connections.usage","http.server.requests","jvm.classes.loaded","jvm.classes.unloaded","jvm.gc.live.data.size","jvm.gc.max.data.size","jvm.gc.memory.allocated","jvm.gc.memory.promoted","jvm.memory.committed","jvm.memory.max","jvm.memory.used","jvm.threads.daemon","jvm.threads.live","jvm.threads.peak","jvm.threads.started","jvm.threads.states","logback.events","process.cpu.usage","process.files.max","process.files.open","process.start.time","process.uptime","system.cpu.count","system.cpu.usage","system.load.average.1m"]}
-[opc@admin2-vm1 ~]$
 [opc@admin2-vm1 ~]$
 ```
 

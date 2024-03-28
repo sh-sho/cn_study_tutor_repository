@@ -122,9 +122,9 @@ Start development loop? (default: n):
 
 
 ### 以下のような条件を満たすアプリケーションをHelidonで実装してください
-#### `curl http://localhost:8080/health`を実行すると、`{“status”: “UP”, ”checks”: []}`と返却される
-#### `curl http://localhost:8080/metrics`を実行すると、アプリケーションのメトリクス情報が返却される
-#### `curl http://localhost:8080/greet`を実行すると、`{“message”: “Hello world”}`と返却される
+- `curl http://localhost:8080/health`を実行すると、`{“status”: “UP”, ”checks”: []}`と返却される
+- `curl http://localhost:8080/metrics`を実行すると、アプリケーションのメトリクス情報が返却される
+- `curl http://localhost:8080/greet`を実行すると、`{“message”: “Hello world”}`と返却される
 
 Helidon4.x.xはJava21以上が必要なので、Java21のrpmをダウンロードしてインストール
 
@@ -169,6 +169,77 @@ failed to create /var/lib/alternatives/java.new: Permission denied
 java version "21.0.2" 2024-01-16 LTS
 Java(TM) SE Runtime Environment (build 21.0.2+13-LTS-58)
 Java HotSpot(TM) 64-Bit Server VM (build 21.0.2+13-LTS-58, mixed mode, sharing)
+```
+
+#### テストしてコードに間違いがないかを確認する
+
+```console
+[opc@admin2-vm1 quickstart-mp]$ mvn test
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Detecting the operating system and CPU architecture
+[INFO] ------------------------------------------------------------------------
+[INFO] os.detected.name: linux
+[INFO] os.detected.arch: x86_64
+[INFO] os.detected.version: 5.15
+[INFO] os.detected.version.major: 5
+[INFO] os.detected.version.minor: 15
+[INFO] os.detected.release: ol
+[INFO] os.detected.release.version: 9.3
+[INFO] os.detected.release.like.ol: true
+[INFO] os.detected.release.like.fedora: true
+[INFO] os.detected.classifier: linux-x86_64
+[INFO] 
+[INFO] --------------------< me.opc-helidon:quickstart-mp >--------------------
+[INFO] Building quickstart-mp 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ quickstart-mp ---
+[INFO] Copying 4 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ quickstart-mp ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- jandex:3.1.2:jandex (make-index) @ quickstart-mp ---
+[INFO] Saving Jandex index: /home/opc/cn-study_public/5-2-Java_Standard_Helidon/quickstart-mp/target/classes/META-INF/jandex.idx
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ quickstart-mp ---
+[INFO] Copying 2 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- compiler:3.11.0:testCompile (default-testCompile) @ quickstart-mp ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- surefire:3.1.0:test (default-test) @ quickstart-mp ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running me.opc.mp.quickstart.MainTest
+2024.03.28 16:24:16 WARNING io.helidon.openapi.OpenApiFeature Thread[#1,main,5,main]: Static OpenAPI file not found, checked: [META-INF/openapi.yml, META-INF/openapi.yaml, META-INF/openapi.json]
+2024.03.28 16:24:17 INFO io.helidon.microprofile.server.ServerCdiExtension Thread[#1,main,5,main]: Registering JAX-RS Application: HelidonMP
+2024.03.28 16:24:17 WARNING org.glassfish.jersey.server.wadl.WadlFeature Thread[#1,main,5,main]: JAX-B API not found . WADL feature is disabled.
+2024.03.28 16:24:17 INFO io.helidon.webserver.ServerListener VirtualThread[#36,start @default (/0.0.0.0:0)]/runnable@ForkJoinPool-1-worker-1: [0x33e51cf4] http://0.0.0.0:34973 bound for socket '@default'
+2024.03.28 16:24:17 INFO io.helidon.webserver.LoomServer Thread[#1,main,5,main]: Started all channels in 9 milliseconds. 2064 milliseconds since JVM startup. Java 21.0.2+13-LTS-jvmci-23.1-b30
+2024.03.28 16:24:17 INFO io.helidon.microprofile.server.ServerCdiExtension Thread[#1,main,5,main]: Server started on http://localhost:34973 (and all other host addresses) in 2069 milliseconds (since JVM startup).
+2024.03.28 16:24:17 INFO io.helidon.common.features.HelidonFeatures Thread[#40,features-thread,5,main]: Helidon MP 4.0.6 features: [CDI, Config, Health, Metrics, Open API, Server]
+2024.03.28 16:24:18 INFO io.helidon.webserver.ServerListener Thread[#34,server-@default-listener,5,main]: [0x33e51cf4] @default socket closed.
+2024.03.28 16:24:18 INFO io.helidon.webserver.LoomServer Thread[#1,main,5,main]: Helidon WebServer stopped all channels.
+2024.03.28 16:24:18 INFO io.helidon.microprofile.server.ServerCdiExtension Thread[#1,main,5,main]: Server stopped in 7 milliseconds.
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.322 s - in me.opc.mp.quickstart.MainTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.661 s
+[INFO] Finished at: 2024-03-28T16:24:18+09:00
+[INFO] ------------------------------------------------------------------------
+[opc@admin2-vm1 quickstart-mp]$ 
 ```
 
 #### プロジェクトのビルド
@@ -523,5 +594,5 @@ Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons
 [INFO] Total time:  12.714 s
 [INFO] Finished at: 2024-03-23T14:44:41+09:00
 [INFO] ------------------------------------------------------------------------
-
 ```
+

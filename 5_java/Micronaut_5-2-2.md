@@ -233,17 +233,34 @@ Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons
 06:48:03.944 [main] INFO  io.micronaut.runtime.Micronaut - Startup completed in 1658ms. Server Running: http://admin2-vm1:8080
 ```
 
-別コンソールで`curl http://localhost:8080/xxxxx`を実行
+#### `curl http://localhost:8080/health`を実行すると、`{“status”: “UP”, ”checks”: []}` と返却される
+
+別コンソールで`curl http://localhost:8080/health`を実行。アプリケーションに関する各種メトリクスが表示される。
+
+```console
+[opc@admin2-vm1 ~]$ curl http://localhost:8080/health
+{"status":"UP"}
+[opc@admin2-vm1 ~]$
+```
+
+#### `curl http://localhost:8080/metrics`を実行すると、アプリケーションのメトリクス情報が返却される
+
+別コンソールで`curl http://localhost:8080/metrics`を実行
+
+```console
+[opc@admin2-vm1 ~]$ curl http://localhost:8080/metrics
+{"names":["executor","executor.active","executor.completed","executor.pool.core","executor.pool.max","executor.pool.size","executor.queue.remaining","executor.queued","hikaricp.connections","hikaricp.connections.acquire","hikaricp.connections.active","hikaricp.connections.creation","hikaricp.connections.idle","hikaricp.connections.max","hikaricp.connections.min","hikaricp.connections.pending","hikaricp.connections.timeout","hikaricp.connections.usage","http.server.requests","jvm.buffer.count","jvm.buffer.memory.used","jvm.buffer.total.capacity","jvm.classes.loaded","jvm.classes.unloaded","jvm.gc.concurrent.phase.time","jvm.gc.live.data.size","jvm.gc.max.data.size","jvm.gc.memory.allocated","jvm.gc.memory.promoted","jvm.gc.pause","jvm.memory.committed","jvm.memory.max","jvm.memory.used","jvm.threads.daemon","jvm.threads.live","jvm.threads.peak","jvm.threads.started","jvm.threads.states","logback.events","process.cpu.usage","process.files.max","process.files.open","process.start.time","process.uptime","system.cpu.count","system.cpu.usage","system.load.average.1m"]}
+[opc@admin2-vm1 ~]$
+```
+
+#### `curl http://localhost:8080/greet`を実行すると、`{“message”: “Hello world”}` と返却される
+
+別コンソールで`curl http://localhost:8080/greet`を実行
 
 ```console
 [opc@admin2-vm1 ~]$ curl http://localhost:8080/greet
 {"message":"Hello World"}
 [opc@admin2-vm1 ~]$
-[opc@admin2-vm1 ~]$
-[opc@admin2-vm1 ~]$ curl http://localhost:8080/metrics
-{"names":["executor","executor.active","executor.completed","executor.pool.core","executor.pool.max","executor.pool.size","executor.queue.remaining","executor.queued","hikaricp.connections","hikaricp.connections.acquire","hikaricp.connections.active","hikaricp.connections.creation","hikaricp.connections.idle","hikaricp.connections.max","hikaricp.connections.min","hikaricp.connections.pending","hikaricp.connections.timeout","hikaricp.connections.usage","http.server.requests","jvm.buffer.count","jvm.buffer.memory.used","jvm.buffer.total.capacity","jvm.classes.loaded","jvm.classes.unloaded","jvm.gc.concurrent.phase.time","jvm.gc.live.data.size","jvm.gc.max.data.size","jvm.gc.memory.allocated","jvm.gc.memory.promoted","jvm.gc.pause","jvm.memory.committed","jvm.memory.max","jvm.memory.used","jvm.threads.daemon","jvm.threads.live","jvm.threads.peak","jvm.threads.started","jvm.threads.states","logback.events","process.cpu.usage","process.files.max","process.files.open","process.start.time","process.uptime","system.cpu.count","system.cpu.usage","system.load.average.1m"]}
-[opc@admin2-vm1 ~]$ curl http://localhost:8080/health
-{"status":"UP"}
 ```
 
 ## 参考サイト
