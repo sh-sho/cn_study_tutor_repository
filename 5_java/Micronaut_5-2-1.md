@@ -199,7 +199,7 @@ mn>
 
 ### (補足) 一応実行して稼働状況を確認する。
 
-#### `curl http://localhost:8080/health`を実行すると、`{“status”: “UP”, ”checks”: []}` と返却される
+#### `curl http://localhost:8080/health`を実行すると、`{"status": "UP"}` と返却される
 
 アプリケーションを実行する。
 
@@ -281,7 +281,7 @@ mn>
 {"name":"process.start.time","measurements":[{"statistic":"VALUE","value":1.711574454305E9}],"description":"Start time of the process since unix epoch."}
 ```
 
-#### `curl http://localhost:8080/greet`を実行すると、`{“message”: “Hello world”}` と返却される
+#### `curl http://localhost:8080/greet`を実行すると、`{"message": "Hello world"}` と返却される
 
 [./src/main/java/example/micronaut/HelloController.java](./micronautguide/src/main/java/example/micronaut/HelloController.java)ファイルを作成
 

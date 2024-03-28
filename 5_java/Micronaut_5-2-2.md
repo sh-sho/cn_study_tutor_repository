@@ -233,7 +233,7 @@ Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons
 06:48:03.944 [main] INFO  io.micronaut.runtime.Micronaut - Startup completed in 1658ms. Server Running: http://admin2-vm1:8080
 ```
 
-#### `curl http://localhost:8080/health`を実行すると、`{“status”: “UP”, ”checks”: []}` と返却される
+#### `curl http://localhost:8080/health`を実行すると、`{"status": "UP"}` と返却される
 
 別コンソールで`curl http://localhost:8080/health`を実行。アプリケーションに関する各種メトリクスが表示される。
 
@@ -253,7 +253,7 @@ Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons
 [opc@admin2-vm1 ~]$
 ```
 
-#### `curl http://localhost:8080/greet`を実行すると、`{“message”: “Hello world”}` と返却される
+#### `curl http://localhost:8080/greet`を実行すると、`{"message": "Hello world"}` と返却される
 
 別コンソールで`curl http://localhost:8080/greet`を実行
 
