@@ -392,7 +392,7 @@ ghcr.io/graalvm/native-image-community   17-ol9    d4837dfb86a3   5 months ago  
 
 ```
 
-別コンソールで`curl http://localhost:6060/xxxxx`を実行（詳細は省略）
+アプリケーションを実行した状態で、別コンソールで`curl http://localhost:6060/xxxxx`を実行（詳細は省略）
 
 ```console
 [opc@admin2-vm1 ~]$ curl http://localhost:8080/greet
