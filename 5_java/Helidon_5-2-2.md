@@ -15,7 +15,7 @@
 
 #### `curl http://localhost:8080/health`を実行すると、`{“status”: “UP”, ”checks”: []}` と返却される
 
-別コンソールで`curl http://localhost:8080/health`を実行。アプリケーションに関する各種メトリクスが表示される。
+アプリケーションを実行した状態で、別コンソールで`curl http://localhost:8080/health`を実行。アプリケーションに関する各種メトリクスが表示される。
 
 ```console
 [opc@admin2-vm1 ~]$ curl http://localhost:8080/health
@@ -25,7 +25,7 @@
 
 #### `curl http://localhost:8080/metrics`を実行すると、アプリケーションのメトリクス情報が返却される
 
-別コンソールで`curl http://localhost:8080/metrics`を実行
+アプリケーションを実行した状態で、別コンソールで`curl http://localhost:8080/metrics`を実行
 
 ```console
 [opc@admin2-vm1 ~]$ curl http://localhost:8080/metrics
@@ -99,7 +99,7 @@ thread_daemon_count{mp_scope="base",} 13.0
 
 #### `curl http://localhost:8080/greet`を実行すると、`{“message”: “Hello world”}` と返却される
 
-別コンソールで`curl http://localhost:8080/greet`を実行
+アプリケーションを実行した状態で、別コンソールで`curl http://localhost:8080/greet`を実行
 
 ```console
 [opc@admin2-vm1 ~]$ curl http://localhost:8080/greet
