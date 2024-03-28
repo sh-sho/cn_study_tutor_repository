@@ -3,14 +3,16 @@ package com.oracle.training.data;
 import lombok.Getter;
 import lombok.AllArgsConstructor;
 
+@Getter
 @AllArgsConstructor
 public class Oracle3{
-    @Getter
-    private int employeeNum;
-    @Getter
-    private int age;
-    @Getter
-    private String name;
-    @Getter
-    private String department;
+    private final int employeeNum;
+    private final int age;
+    private final String name;
+    private final String department;
+
+    @Override
+    public String toString(){
+        return "employeeNum: " + employeeNum + ", age: " + age + ", name: " + name + ", department: " + department;
+    }
 }

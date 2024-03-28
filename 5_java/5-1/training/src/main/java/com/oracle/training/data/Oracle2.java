@@ -1,10 +1,10 @@
 package com.oracle.training.data;
 
 public class Oracle2{
-    private int employeeNum;
-    private int age;
-    private String name;
-    private String department;
+    private final int employeeNum;
+    private final int age;
+    private final String name;
+    private final String department;
 
     public Oracle2(int employeeNum, int age, String name, String department){
         this.employeeNum = employeeNum;
@@ -27,5 +27,10 @@ public class Oracle2{
 
     public String getDepartment() {
         return department;
+    }
+
+    @Override
+    public String toString(){
+        return "employeeNum: " + employeeNum + ", age: " + age + ", name: " + name + ", department: " + department;
     }
 }
