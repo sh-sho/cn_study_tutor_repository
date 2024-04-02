@@ -13,7 +13,7 @@
 2024.03.23 14:49:15 INFO io.helidon.common.features.HelidonFeatures Thread[#29,features-thread,5,main]: Helidon MP 4.0.6 features: [CDI, Config, Health, Metrics, Open API, Server]
 ```
 
-#### `curl http://localhost:8080/health`を実行すると、`{“status”: “UP”, ”checks”: []}` と返却される
+#### `curl http://localhost:8080/health`を実行すると、`{"status": "UP", "checks": []}` と返却される
 
 アプリケーションを実行した状態で、別コンソールで`curl http://localhost:8080/health`を実行。アプリケーションに関する各種メトリクスが表示される。
 
@@ -97,7 +97,7 @@ thread_daemon_count{mp_scope="base",} 13.0
 [opc@admin2-vm1 ~]$
 ```
 
-#### `curl http://localhost:8080/greet`を実行すると、`{“message”: “Hello world”}` と返却される
+#### `curl http://localhost:8080/greet`を実行すると、`{"message": "Hello world"}` と返却される
 
 アプリケーションを実行した状態で、別コンソールで`curl http://localhost:8080/greet`を実行
 
