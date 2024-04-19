@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: micronautguide-deloyment
+  namespace: cn-study
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: micronautguide
+  template:
+    metadata:
+      labels:
+        app: micronautguide
+    spec:
+      containers:
+      - name: micronautguide
+        image: nrt.ocir.io/nrruovdjeqty/cn-study/micronautguide:1.0
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: secret-hatoreka
+

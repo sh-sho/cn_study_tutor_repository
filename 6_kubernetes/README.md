@@ -5,7 +5,7 @@
 3. [作成したNginxのPodを公開するService(ClusterIP)を作ってください](./6-3.md)
    1. ポートフォワードを行い、Nginxのトップページをlocalhostで参照できることを確認してください
 4. [作成したNginxのトップページをクラスタ外から参照できるようにしてください](./6-4.md)
-5. #5で作成したHelidon or MicronautのアプリケーションをKubernetes上に展開してブラウザから参照できるようにしてください
+5. [#5で作成したHelidon or MicronautのアプリケーションをKubernetes上に展開してブラウザから参照できるようにしてください](6-5.md)
 6. WordPressをKubernetes上に構築してブラウザから参照できるようにしてください
-   1. ただし、WordPressのアプリケーションが落ちてもデータが永続化されるようにKubernetes上にMySQLを構築し、それと接続するようにしてください
+   1. [ただし、WordPressのアプリケーションが落ちてもデータが永続化されるようにKubernetes上にMySQLを構築し、それと接続するようにしてください](6-6.md)
 

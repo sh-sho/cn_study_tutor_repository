@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: micronautguide-lb
+  namespace: cn-study
+  labels:
+    app: cowsay
+  annotations:
+    oci.oraclecloud.com/load-balancer-type: "lb"
+    service.beta.kubernetes.io/oci-load-balancer-internal: "false"
+    service.beta.kubernetes.io/oci-load-balancer-shape: "flexible"
+    service.beta.kubernetes.io/oci-load-balancer-shape-flex-min: "10"
+    service.beta.kubernetes.io/oci-load-balancer-shape-flex-max: "30"
+spec:
+  ports:
+  - port: 30095 # rang from 30000-32767
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: micronautguide
+  type: LoadBalancer
+
