@@ -4,7 +4,7 @@ metadata:
   name: micronautguide-deloyment
   namespace: cn-study
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: micronautguide
