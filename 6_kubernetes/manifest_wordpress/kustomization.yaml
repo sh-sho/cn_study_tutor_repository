@@ -1,3 +1,4 @@
+# Write the secret setting down if you want to create secret in the kustomization.yaml
 #secretGenerator:
 #- name: mysql-pass
 #  namespace: wordpress
