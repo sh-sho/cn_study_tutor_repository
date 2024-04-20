@@ -51,10 +51,3 @@ spec:
       - name: mysql-persistent-storage  # Block storage
         persistentVolumeClaim:
           claimName: mysql-pv-claim
-      - name: sync-creds
-        csi:
-          driver: 'secrets-store.csi.k8s.io'
-          readOnly: true
-          volumeAttributes:
-            secretProviderClass: 'test-oci-provider-class-sync'  # here we reference particular SecretProviderClass
-
