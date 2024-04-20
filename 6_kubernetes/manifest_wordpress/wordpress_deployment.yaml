@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wordpress
+  namespace: wordpress
+  labels:
+    app: wordpress-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: wordpress-app
+      tier: frontend
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: wordpress-app
+        tier: frontend
+    spec:
+      containers:
+      - image: wordpress:6.4.2-apache
+        name: wordpress
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "400m"
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: wordpress-mysql-service
+        - name: WORDPRESS_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-pass
+              key: password
+        - name: WORDPRESS_DB_USER
+          value: wordpress
+        ports:
+        - containerPort: 80
+          name: wordpress
+        volumeMounts:
+        - name: wordpress-persistent-storage-fss  # FSS
+          mountPath: /var/www/html
+      volumes:
+      - name: wordpress-persistent-storage-fss  # FSS
+        persistentVolumeClaim:
+          claimName: oke-fsspvc

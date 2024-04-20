@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+ name: oke-fsspvc
+ namespace: wordpress
+spec:
+ storageClassName: oci-fss
+ accessModes:
+ - ReadWriteMany
+ resources:
+  requests:
+ # Although storage is provided here it is not used for FSS file systems
+    storage: 10Mi
+ volumeName: oke-fsspv
