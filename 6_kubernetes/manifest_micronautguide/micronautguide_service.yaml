@@ -14,7 +14,7 @@ metadata:
     service.beta.kubernetes.io/oci-load-balancer-shape-flex-max: "30"
 spec:
   ports:
-  - port: 30095 # rang from 30000-32767
+  - port: 80
     protocol: TCP
     targetPort: 8080
   selector:
