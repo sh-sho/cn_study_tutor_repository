@@ -1,0 +1,9 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: oci-fss
+  namespace: wordpress
+provisioner: oracle.com/oci-fss
+parameters:
+  # Insert mount target from the FSS here
+  mntTargetId: ocid1.mounttarget.oc1.ap_tokyo_1.aaaaaa4np2ujwl26nzzhillqojxwiotboawxi33lpfxs2mjnmfsc2mia

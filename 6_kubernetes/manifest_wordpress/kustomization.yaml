@@ -1,0 +1,17 @@
+# Write the secret setting down if you want to create secret in the kustomization.yaml
+#secretGenerator:
+#- name: mysql-pass
+#  namespace: wordpress
+#  literals:
+#  - password=P@assW0rd
+resources:
+  - wordpress_namespace.yaml
+  - secret.yaml
+  - mysql_pvc.yaml
+  - mysql_deployment.yaml
+  - mysql_service.yaml
+  - wordpress_fss_pv.yaml
+  - wordpress_fss_pvc.yaml
+  - wordpress_fss_stg.yaml
+  - wordpress_deployment.yaml
+  - wordpress_lb.yaml
