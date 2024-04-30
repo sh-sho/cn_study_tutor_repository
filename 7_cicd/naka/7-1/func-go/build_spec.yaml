@@ -1,0 +1,34 @@
+# https://docs.oracle.com/ja-jp/iaas/Content/devops/using/build_specs.htm
+# build runner config
+version: 0.1
+component: build
+timeoutInSeconds: 10000
+shell: bash
+env: 
+  variables:
+    image_name: func-go
+    image_version: 0.0.5
+  exportedVariables:
+    - tag
+
+steps:
+  - type: Command
+    name: "Docker image build"
+    timeoutInSeconds: 600
+    command: |
+      cd func-go
+      fn build --verbose
+      docker images
+      docker tag ${image_name}:${image_version} func-go-image
+      tag=$(date '+%Y%m%d_%H%M%S')  # Insert date+time to tag
+      docker images
+    onFailure:
+      - type: Command
+        command: |
+          echo "Failure successfully handled"
+        timeoutInSeconds: 60
+
+outputArtifacts:
+  - name: func-go-image
+    type: DOCKER_IMAGE
+    location: func-go-image

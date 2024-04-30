@@ -1,0 +1,36 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata:
+  name: go
+spec:
+  selector: 
+    matchLabels:
+      app: go
+  replicas: 1 
+  template: 
+    metadata:
+      labels:
+        app: go
+    spec:
+      containers:
+      - name: go-container
+        image: nrt.ocir.io/nrruovdjeqty/cn-study/go-image:${tag}
+        ports:
+        - containerPort: 8080
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: secret-hatoreka
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app: go
