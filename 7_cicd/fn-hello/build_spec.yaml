@@ -1,0 +1,30 @@
+version: 0.1
+component: build
+timeoutInSeconds: 10000
+shell: bash
+env:
+  variables:
+    function_name: fn-hello-python-github
+    function_version: 0.0.1
+  exportedVariables:
+    - tag
+
+steps:
+  - type: Command
+    name: "Docker image build"
+    timeoutInSeconds: 4000
+    command: |
+      cd fn-hello-python-github
+      fn build
+      docker tag ${function_name}:${function_version} fn-hello-image
+      tag=${function_version}
+    onFailure:
+      - type: Command
+        command: |
+          echo "Failure successfully handled"
+        timeoutInSeconds: 60
+
+outputArtifacts:
+  - name: fn-hello-image
+    type: DOCKER_IMAGE
+    location: fn-hello-image
