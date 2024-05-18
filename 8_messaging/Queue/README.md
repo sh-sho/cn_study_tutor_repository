@@ -8,19 +8,21 @@
 
 ## OCI Consoleを用いてQueueにメッセージをPut/Get/Deleteできることを確認してください
 
-https://docs.oracle.com/en-us/iaas/Content/queue/queue-management.htm
+[Queue作成方法](https://docs.oracle.com/en-us/iaas/Content/queue/queue-create.htm#top)
 
 ### Put
 
-https://docs.oracle.com/en-us/iaas/Content/queue/publish-messages.htm#publish-messages
+[キューへのメッセージの公開](https://docs.oracle.com/ja-jp/iaas/Content/queue/publish-messages-queue.htm)
+
+[チャネルへのメッセージのパブリッシュ](https://docs.oracle.com/ja-jp/iaas/Content/queue/publish-messages-channel.htm)
 
 ### Get
 
-https://docs.oracle.com/en-us/iaas/Content/queue/queue-details.htm
+[キュー詳細の取得](https://docs.oracle.com/ja-jp/iaas/Content/queue/queue-details.htm)
 
 ### Delete
 
-https://docs.oracle.com/en-us/iaas/Content/queue/queue-delete.htm
+[キューの削除](https://docs.oracle.com/ja-jp/iaas/Content/queue/queue-delete.htm)
 
 ## OCI CLIを用いてQueueにメッセージをPut/Get/Deleteできることを確認してください
 
