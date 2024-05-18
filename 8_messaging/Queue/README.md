@@ -274,7 +274,7 @@ sys     0m0.460s
 
 ### Delete
 
-削除用のJSONファイル作成
+削除用の[entries.json](./entries.json)ファイル作成
 
 ```json
 [
@@ -316,9 +316,11 @@ sys     0m0.460s
 [opc@bastion ~]$ 
 ```
 
-## 任意の言語 + SDKを用いてQueueにメッセージをPut/Get/Deleteするコードを書いてください
+## 任意の言語 + SDKを用いてQueueにメッセージをPut/Get/Deleteするコードを書いてください(Python)
 
 ### Put
+
+[message-put.py](./message-put.py)
 
 ```python
 import oci
@@ -369,6 +371,8 @@ print(put_messages_response.data)
 ```
 
 ### Get
+
+[message-get.py](./message-get.py)
 
 ```python
 import oci
@@ -423,6 +427,8 @@ print(get_messages_response.data)
 
 ### Delete
 
+[message-delete.py](./message-delete.py)
+
 ```python
 import oci
 import os
@@ -451,6 +457,5 @@ print(delete_message_response.headers)
 {'opc-request-id': '/A5FB905877787947806DD1444756AFF3/1B1DF3C64799BA7627A0974F392A8E9B', 'access-control-allow-origin': '*', 'access-control-allow-methods': 'POST,PUT,GET,HEAD,DELETE,OPTIONS', 'access-control-allow-credentials': 'true', 'access-control-expose-headers': 'access-control-allow-credentials,access-control-allow-methods,access-control-allow-origin,content-length,opc-client-info,opc-request-id'}
 ```
 
-##
-JSON format
-https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliusing.htm#ManagingCLIInputandOutput
+## (参考)JSON format
+https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/cliusing.htm#AdvancedJSON
