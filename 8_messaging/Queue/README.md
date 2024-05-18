@@ -72,6 +72,8 @@ oci queue messages put-messages --generate-param-json-input messages > messages.
 
 ### サンプルメッセージを作成
 
+[messages.json](./messages.json)
+
 ```json
 [
   {
@@ -95,25 +97,6 @@ oci queue messages put-messages --generate-param-json-input messages > messages.
     }
   }
 ]
-
-```
-
-```console
-[opc@bastion ~]$ oci queue messages put-messages --queue-id $Q --messages file://messages.json --endpoint $E
-{
-  "data": {
-    "messages": [
-      {
-        "expire-after": "2024-05-18T22:00:53.249000+00:00",
-        "id": 90071992627959052
-      },
-      {
-        "expire-after": "2024-05-18T22:00:53.249000+00:00",
-        "id": 90071992627959053
-      }
-    ]
-  }
-}
 ```
 
 ### Put

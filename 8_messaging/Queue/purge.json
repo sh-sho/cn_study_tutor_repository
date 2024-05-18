@@ -1,0 +1,14 @@
+{
+  "channelIds": [
+    "channel01",
+    "channel02"
+  ],
+  "ifMatch": "",
+  "maxWaitSeconds": 0,
+  "purgeType": "BOTH",
+  "queueId": "ocid1.queue.oc1.ap-tokyo-1.amaaaaaawv6mpcaarqsnhlatgns4se3a7cbts65ucioineaskmrtfilss34a",
+  "waitForState": [
+    "ACCEPTED"
+  ],
+  "waitIntervalSeconds": 0
+}

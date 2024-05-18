@@ -1,0 +1,22 @@
+[
+  {
+    "content": "string",
+    "metadata": {
+      "channelId": "channel01",
+      "customProperties": {
+        "string1": "channel01-string01",
+        "string2": "channel01-string02"
+      }
+    }
+  },
+  {
+    "content": "string",
+    "metadata": {
+      "channelId": "channel02",
+      "customProperties": {
+        "string1": "channel02-string01",
+        "string2": "channel02-string02"
+      }
+    }
+  }
+]
