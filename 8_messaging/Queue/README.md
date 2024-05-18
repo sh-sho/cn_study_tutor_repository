@@ -26,7 +26,7 @@
 
 ## OCI CLIを用いてQueueにメッセージをPut/Get/Deleteできることを確認してください
 
-環境変数の設定。`C`はコンパートのOCID、`Q`はQueueのOCID、`E`はエンドポイントのURL
+これ以降の操作の環境変数設定。`C`はコンパートのOCID、`Q`はQueueのOCID、`E`はエンドポイントのURL
 
 ```console
 [opc@bastion ~]$ echo $E
