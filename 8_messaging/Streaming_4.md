@@ -9,6 +9,7 @@
 ## Put
 参考：[PutMessagesのAPIリファレンス](https://docs.oracle.com/en-us/iaas/api/#/en/streaming/20180418/Message/PutMessages)
 
+[put.py](https://github.com/sh-sho/cn_study_tutor_repository/blob/8_Streaming_tokunaga/8_messaging/8_stream/put.py)
 ```
 import oci
 
@@ -60,6 +61,7 @@ ubuntu@public-instance-tokunaga-ubuntu2:~/8_stream$ python3 put.py
 ## CreateCursor
 参考：[CreateCursorのAPIリファレンス](https://docs.oracle.com/en-us/iaas/api/#/en/streaming/20180418/Cursor/CreateCursor)
 
+[CreateCursor.py](https://github.com/sh-sho/cn_study_tutor_repository/blob/8_Streaming_tokunaga/8_messaging/8_stream/CreateCursor.py)
 ```
 from datetime import datetime
 import oci
@@ -100,6 +102,8 @@ ubuntu@public-instance-tokunaga-ubuntu2:~/8_stream$ python3 CreateCursor.py
 ## Get
 参考：[GetMessagesのAPIリファレンス](https://docs.oracle.com/en-us/iaas/api/#/en/streaming/20180418/Message/GetMessages)
 
+[get.py](https://github.com/sh-sho/cn_study_tutor_repository/blob/8_Streaming_tokunaga/8_messaging/8_stream/get.py)
+cursorの値は、CreateCursorの返り値を入れる
 ```
 import oci
 
