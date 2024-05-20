@@ -37,7 +37,7 @@ ocid1.compartment.oc1..aaaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ocid1.queue.oc1.ap-tokyo-1.amaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-### メッセージのフォーマットを確認
+### Putメッセージのフォーマットを確認
 
 ```console
 oci queue messages put-messages --generate-param-json-input messages > messages.json
@@ -70,7 +70,7 @@ oci queue messages put-messages --generate-param-json-input messages > messages.
 ]
 ```
 
-### サンプルメッセージを作成
+### Putサンプルメッセージを作成
 
 [messages.json](./messages.json)
 
@@ -272,7 +272,26 @@ sys     0m0.460s
 
 3回まで15秒ごとにメッセージを取得して、4回目以降は約30秒でタイムアウトしている。
 
-### Delete
+### Deleteエントリーファイルのフォーマットを確認
+
+```console
+oci queue messages delete-messages --generate-param-json-input entries > entries.json
+```
+
+`entries.json`の中身
+
+```json
+[
+  {
+    "receipt": "string"
+  },
+  {
+    "receipt": "string"
+  }
+]
+```
+
+### Deleteのエントリーファイルを作成
 
 削除用の[entries.json](./entries.json)ファイル作成
 
@@ -290,6 +309,8 @@ sys     0m0.460s
 ]
 
 ```
+
+### Delete
 
 ```console
 [opc@bastion ~]$ oci queue messages delete-messages --entries file://entries.json --queue-id $Q --endpoint $E
