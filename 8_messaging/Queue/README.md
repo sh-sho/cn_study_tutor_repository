@@ -40,7 +40,7 @@ ocid1.queue.oc1.ap-tokyo-1.amaaaaaaxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ### Putメッセージのフォーマットを確認
 
 ```console
-oci queue messages put-messages --generate-param-json-input messages > messages.json
+[opc@bastion ~]$ oci queue messages put-messages --generate-param-json-input messages > messages.json
 ```
 
 `messages.json`の中身
@@ -275,7 +275,7 @@ sys     0m0.460s
 ### Deleteエントリーファイルのフォーマットを確認
 
 ```console
-oci queue messages delete-messages --generate-param-json-input entries > entries.json
+[opc@bastion ~]$ oci queue messages delete-messages --generate-param-json-input entries > entries.json
 ```
 
 `entries.json`の中身
