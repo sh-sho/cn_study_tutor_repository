@@ -1,5 +1,10 @@
-#
+# 任意の言語 + SDKを用いてStreamingとPub/Subするコードを書いてください
+
+任意の言語はpythonにしました。<br>
+基本流れはCLIと同じで①メッセージのPut②カーソルの作成③メッセージのGet<br>
+
 ## Put
+参考：[PutMessagesのAPIリファレンス](https://docs.oracle.com/en-us/iaas/api/#/en/streaming/20180418/Message/PutMessages)
 ```
 ubuntu@public-instance-tokunaga-ubuntu2:~/8_stream$ python3 put.py 
 {
@@ -17,6 +22,7 @@ ubuntu@public-instance-tokunaga-ubuntu2:~/8_stream$ python3 put.py
 
 ```
 ## CreateCursor
+参考：[CreateCursorのAPIリファレンス](https://docs.oracle.com/en-us/iaas/api/#/en/streaming/20180418/Cursor/CreateCursor)
 ```
 ubuntu@public-instance-tokunaga-ubuntu2:~/8_stream$ python3 CreateCursor.py 
 {
@@ -25,6 +31,7 @@ ubuntu@public-instance-tokunaga-ubuntu2:~/8_stream$ python3 CreateCursor.py
 ```
 
 ## Get
+参考：[GetMessagesのAPIリファレンス](https://docs.oracle.com/en-us/iaas/api/#/en/streaming/20180418/Message/GetMessages)
 ```
 ubuntu@public-instance-tokunaga-ubuntu2:~/8_stream$ python3 get.py 
 [{
