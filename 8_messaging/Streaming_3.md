@@ -2,6 +2,8 @@
 
 参考：[Apache Kafkaでのストリーミングの使用](https://docs.oracle.com/ja-jp/iaas/Content/Streaming/Tasks/kafkacompatibility.htm)
 
+参考：[OCIのチュートリアル](https://oracle-japan.github.io/ocitutorials/datascience/streaming-for-beginner/#%E3%82%AA%E3%83%97%E3%82%B7%E3%83%A7%E3%83%B3-kafka-console-client-%E3%82%92%E7%94%A8%E3%81%84%E3%81%9F%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8%E3%81%AE-pubsub)
+
 最新版を[ダウンロード](https://kafka.apache.org/downloads)
 ```
 ritsuko_to@cloudshell:~ (us-ashburn-1)$ wget https://downloads.apache.org/kafka/3.7.0/kafka_2.13-3.7.0.tgz
@@ -34,7 +36,7 @@ ritsuko_to@cloudshell:~ (us-ashburn-1)$ echo $KAFKA_HOME
 ritsuko_to@cloudshell:~ (us-ashburn-1)$ 
 ```
 
-
+接続ファイルの作成（producer-streaming.properties）
 ```
 ritsuko_to@cloudshell:~ (us-ashburn-1)$ cat $KAFKA_HOME/config/producer-streaming.properties
 bootstrap.servers=cell-1.streaming.us-ashburn-1.oci.oraclecloud.com:9092
@@ -44,7 +46,7 @@ sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="orasejapan/ritsuko.tokunaga@oracle.com/ocid1.streampool.oc1.iad.amaaaaaassl65iqazl6dom7j2l6vkwucpaftts5llop6sdvngmcemjifnahq" password="2;DW4)psrDAL:7u7SPI;"xxxxx;
 
 ```
-
+接続ファイルの作成（consumer-streaming.properties）
 ```
 ritsuko_to@cloudshell:~ (us-ashburn-1)$ cat $KAFKA_HOME/config/consumer-streaming.properties
 bootstrap.servers=cell-1.streaming.us-ashburn-1.oci.oraclecloud.com:9092
@@ -55,7 +57,7 @@ sasl.mechanism=PLAIN
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="orasejapan/ritsuko.tokunaga@oracle.com/ocid1.streampool.oc1.iad.amaaaaaassl65iqazl6dom7j2l6vkwucpaftts5llop6sdvngmcemjifnahq" password="2;DW4)psrDAL:7u7SPI;";
 
 ```
-
+実行
 ```
 ritsuko_to@cloudshell:~ (us-ashburn-1)$ $KAFKA_HOME/bin/kafka-console-producer.sh --bootstrap-server cell-1.streaming.us-ashburn-1.oci.oraclecloud.com:9092 --topic HandsonStream --producer.config $KAFKA_HOME/config/producer-streaming.properties
 >[2024-05-17 11:22:43,026] ERROR [Producer clientId=console-producer] Connection to node -1 (cell-1.streaming.us-ashburn-1.oci.oraclecloud.com/147.154.53.26:9092) failed authentication due to: Authentication failed (org.apache.kafka.clients.NetworkClient)
