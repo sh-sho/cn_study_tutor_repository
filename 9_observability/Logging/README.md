@@ -33,7 +33,8 @@ NodeとなるVMのCustom Logsを見ることで確認ができる。
 
 ### アプリケーションのLog
 次に、アプリケーションログを取得する。
-以下のようにカスタムログを設定する。
+Observability & Management > Logsを選択する。
+以下のようにカスタムログを作成する。
 （必要なポリシーは各自追加する。）
 ![alt text](./images/04_log.png)
 
@@ -44,3 +45,4 @@ NodeとなるVMのCustom Logsを見ることで確認ができる。
 podのアプリケーションログがOCI Loggingで取得できる。
 ![alt text](./images/06_log.png)
 
+以上
