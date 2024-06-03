@@ -29,6 +29,7 @@ NodeのLogを確認する。
 NodeとなるVMのCustom Logsを見ることで確認ができる。
 
 ![alt text](./images/03_log.png)
+このLogからはNodeへのヘルスチェックなどのNodeに対するLogを取得することができる。
 
 
 ### アプリケーションのLog
@@ -44,5 +45,7 @@ Observability & Management > Logsを選択する。
 
 podのアプリケーションログがOCI Loggingで取得できる。
 ![alt text](./images/06_log.png)
+
+このLogからはアプリケーションの通信やコンテナ内のLogが取得できる。
 
 以上
