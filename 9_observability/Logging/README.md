@@ -7,13 +7,43 @@ OCI FunctionsのLogを有効化する。
 
 適当なfunctionsを起動させる。
 ```python
-$ fn invoke sample-auth-app sample-auth-func
-{'secret content': 'sample-secret-contents'}
+$ fn invoke cn_func cn_helloworld_func
+{"message": "Hello World"}
 ```
 
 Logが取れる。
 ![alt text](./images/02_log.png)
 
+```log
+{
+  "datetime": 1717554913013,
+  "logContent": {
+    "data": {
+      "applicationId": "ocid1.fnapp.oc1.phx.aaaaaaaaxxxxxxxx",
+      "containerId": "01HZK402MQ00000000000002VD",
+      "functionId": "ocid1.fnfunc.oc1.phx.aaaaaaaaxxxxxxxx",
+      "message": "01HZK3ZJXS1BT0D20ZJ00E73MM - root - INFO - Inside Python Hello World function",
+      "opcRequestId": "/01HZK3ZJWV00000000000P34QQ/01HZK3ZJWV00000000000P34QR",
+      "requestId": "/01HZK3ZJWV00000000000P34QQ/01HZK3ZJWV00000000000P34QR",
+      "src": "STDERR"
+    },
+    "id": "cc4fc754-20df-4bbf-a8f0-8ea42be98403",
+    "oracle": {
+      "compartmentid": "ocid1.compartment.oc1..aaaaaaaaxxxxxxxx",
+      "ingestedtime": "2024-06-05T02:35:27.280Z",
+      "loggroupid": "ocid1.loggroup.oc1.phx.aaaaaaaaxxxxxxxx",
+      "logid": "ocid1.log.oc1.phx.aaaaaaaaxxxxxxxx",
+      "tenantid": "ocid1.tenancy.oc1..aaaaaaaaxxxxxxxx"
+    },
+    "source": "cn_func",
+    "specversion": "1.0",
+    "subject": "cn_helloworld_func",
+    "time": "2024-06-05T02:35:13.013Z",
+    "type": "com.oraclecloud.functions.application.functioninvoke"
+  },
+  "regionId": "us-phoenix-1"
+}
+```
 以上
 
 
